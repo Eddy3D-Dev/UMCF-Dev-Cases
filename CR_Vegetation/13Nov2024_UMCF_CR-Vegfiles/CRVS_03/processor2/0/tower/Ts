@@ -1,0 +1,59 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/tower";
+    object      Ts;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 300;
+
+boundaryField
+{
+    buildings_to_air
+    {
+        type            compressible::CFDHAMsolidTemperatureCoupledMixed;
+        qrNbr           qr;
+        qsNbr           qs;
+        value           uniform 300;
+    }
+    interior
+    {
+        type            compressible::CFDHAMsolidTemperatureTransferCoeffInterior;
+        hcoeff          0.405;
+        Tamb            "$FOAM_CASE/0/tower/T_room.dat";
+        value           uniform 300;
+    }
+    procBoundary2to1
+    {
+        type            processor;
+        value           uniform 300;
+    }
+    procBoundary2to3
+    {
+        type            processor;
+        value           uniform 300;
+    }
+    procBoundary2to4
+    {
+        type            processor;
+        value           uniform 300;
+    }
+}
+
+
+// ************************************************************************* //

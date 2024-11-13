@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/tower/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+4
+(
+    buildings_to_air
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          1755;
+        startFace       41615;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     tower;
+    }
+    interior
+    {
+        type            patch;
+        nFaces          1755;
+        startFace       43370;
+    }
+    procBoundary19to17
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          560;
+        startFace       45125;
+        matchTolerance  0.0001;
+        myProcNo        19;
+        neighbProcNo    17;
+    }
+    procBoundary19to18
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          450;
+        startFace       45685;
+        matchTolerance  0.0001;
+        myProcNo        19;
+        neighbProcNo    18;
+    }
+)
+
+// ************************************************************************* //

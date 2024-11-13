@@ -1,0 +1,154 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/vegetation/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+11
+(
+    left
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       15825;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     left;
+    }
+    right
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          72;
+        startFace       15825;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     right;
+    }
+    back
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          20;
+        startFace       15897;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     back;
+    }
+    front
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       15917;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     front;
+    }
+    bottom
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          146;
+        startFace       15917;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     bottom;
+    }
+    top
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          105;
+        startFace       16063;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     top;
+    }
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          1020;
+        startFace       16168;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     tower;
+    }
+    air_to_vegetation
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          0;
+        startFace       17188;
+        sampleMode      nearestCell;
+        sampleRegion    air;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    procBoundary19to16
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          209;
+        startFace       17188;
+        matchTolerance  0.0001;
+        myProcNo        19;
+        neighbProcNo    16;
+    }
+    procBoundary19to17
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          115;
+        startFace       17397;
+        matchTolerance  0.0001;
+        myProcNo        19;
+        neighbProcNo    17;
+    }
+    procBoundary19to18
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          240;
+        startFace       17512;
+        matchTolerance  0.0001;
+        myProcNo        19;
+        neighbProcNo    18;
+    }
+)
+
+// ************************************************************************* //

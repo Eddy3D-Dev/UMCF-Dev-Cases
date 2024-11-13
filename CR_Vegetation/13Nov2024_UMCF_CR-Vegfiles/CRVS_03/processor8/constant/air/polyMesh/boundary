@@ -1,0 +1,128 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/air/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+12
+(
+    left
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18225;
+    }
+    right
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18225;
+    }
+    back
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18225;
+    }
+    front
+    {
+        type            patch;
+        nFaces          16;
+        startFace       18225;
+    }
+    bottom
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          280;
+        startFace       18241;
+    }
+    top
+    {
+        type            patch;
+        nFaces          51;
+        startFace       18521;
+    }
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          0;
+        startFace       18572;
+        sampleMode      nearestPatchFace;
+        sampleRegion    tower;
+        samplePatch     buildings_to_air;
+    }
+    procBoundary8to4
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          131;
+        startFace       18572;
+        matchTolerance  0.0001;
+        myProcNo        8;
+        neighbProcNo    4;
+    }
+    procBoundary8to6
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          35;
+        startFace       18703;
+        matchTolerance  0.0001;
+        myProcNo        8;
+        neighbProcNo    6;
+    }
+    procBoundary8to7
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          136;
+        startFace       18738;
+        matchTolerance  0.0001;
+        myProcNo        8;
+        neighbProcNo    7;
+    }
+    procBoundary8to9
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          703;
+        startFace       18874;
+        matchTolerance  0.0001;
+        myProcNo        8;
+        neighbProcNo    9;
+    }
+    procBoundary8to11
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          166;
+        startFace       19577;
+        matchTolerance  0.0001;
+        myProcNo        8;
+        neighbProcNo    11;
+    }
+)
+
+// ************************************************************************* //

@@ -1,0 +1,523 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : urbanMicroClimateFoam -parallel
+Date   : Nov 13 2024
+Time   : 09:44:23
+Host   : "FOAM2"
+PID    : 46648
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/CRVS_03
+nProcs : 20
+Slaves : 
+19
+(
+"FOAM2.39328"
+"FOAM2.39140"
+"FOAM2.44176"
+"FOAM2.39888"
+"FOAM2.39380"
+"FOAM2.40996"
+"FOAM2.21940"
+"FOAM2.37420"
+"FOAM2.43728"
+"FOAM2.40912"
+"FOAM2.16844"
+"FOAM2.43720"
+"FOAM2.46524"
+"FOAM2.46360"
+"FOAM2.42180"
+"FOAM2.31908"
+"FOAM2.19728"
+"FOAM2.12848"
+"FOAM2.46068"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create fluid mesh for region air for time = 0
+
+Create solid mesh for region tower for time = 0
+
+Create vegetation mesh for region vegetation for time = 0
+
+*** Reading fluid mesh thermophysical properties for region air
+
+    Adding to thermoFluid
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState Boussinesq;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+    Adding to rhoFluid
+
+Radiation model not active: radiationProperties not found
+Selecting radiationModel none
+solarLoad model not active: solarLoadProperties not found
+Selecting solarLoadModel none
+Selecting vegetationModel simplifiedVegetation
+ Defined simplifiedVegetation model
+Grass model not active: grassProperties not found
+Selecting grassModel none
+    Adding to UFluid
+
+    Adding to wFluid
+
+    Adding to gcrFluid
+
+    Adding to phiFluid
+
+    Adding to gFluid
+
+    Adding to turbulence
+
+Selecting turbulence model type RAS
+Selecting RAS turbulence model realizableKE
+RAS
+{
+    RASModel        realizableKE;
+    turbulence      on;
+    printCoeffs     on;
+    A0              4;
+    C2              1.9;
+    sigmak          1;
+    sigmaEps        1.2;
+}
+
+    Adding to thermophysical transport
+
+Selecting thermophysical transport type RAS
+Selecting default RAS thermophysical transport model eddyDiffusivity
+    Adding to ghFluid
+
+    Adding to ghfFluid
+
+pressureControl
+    pMax 120000
+    pMin 80000
+
+    Adding MRF
+
+No MRF models present
+
+    Adding fvOptions
+
+Creating finite volume options from "system/fvOptions"
+
+Selecting finite volume options model type limitTemperature
+    Source: limitT
+    - selecting all cells
+    - selected 120657 cell(s) with volume 23849.159
+    Adding solidTransportProperties
+
+    Adding to rho_mSolid
+
+    Adding to cap_mSolid
+
+    Adding to lambda_mSolid
+
+    Adding to TsSolid
+
+    Adding to wsSolid
+
+    Adding to pcSolid
+
+    Adding to KrelSolid
+
+    Adding to K_vSolid
+
+    Adding to K_ptSolid
+
+    Adding to CrelSolid
+
+    Adding to gSolid
+
+*** Reading fluid mesh thermophysical properties for region vegetation
+
+    Adding to TVeg
+
+Selecting radiationModel viewFactorSky
+Selecting absorptionEmissionModel none
+Selecting scatterModel none
+Selecting solarLoadModel directAndDiffuse
+Selecting solarLoadAbsorptionEmissionModel none
+Selecting solarLoadScatterModel none
+Selected patches:
+14
+(
+0
+1
+2
+3
+4
+5
+6
+7
+-1
+-1
+-1
+-1
+-1
+-1
+)
+
+Number of coarse faces:972
+wallPatchOrNot_: 
+14
+(
+0
+0
+0
+0
+1
+0
+1
+1
+0
+0
+0
+0
+0
+0
+)
+
+nLocalWallCoarseFaces_: 963
+Selected patches:8(0 1 2 3 4 5 6 7)
+Number of coarse faces:972
+wallPatchOrNot_: 7(0 0 0 0 1 0 1)
+nLocalWallCoarseFaces_: 963
+Total number of clusters : 12371
+Total number of fine faces : 22887
+Insert elements in the matrix...
+Smoothing the matrix...
+
+Time = 3600
+
+Solving for fluid region air
+
+SIMPLE: Convergence criteria found
+        p_rgh: tolerance 0.001
+        U: tolerance 0.0001
+        h: tolerance 0.0001
+        w: tolerance 0.0001
+        "(k|epsilon|omega)": tolerance 0.0001
+        Tl: tolerance 0.0001
+
+Internal iteration number: 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1, Final residual = 0.0061777398, No Iterations 3
+DILUPBiCGStab:  Solving for Uy, Initial residual = 1, Final residual = 0.003924268, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 1, Final residual = 0.0056469282, No Iterations 2
+[15] 
+[1] 
+[5] 
+[17] 
+Generating stack trace...
+Generating stack trace...
+[6] 
+[19] 
+Generating stack trace...
+Generating stack trace...
+
+
+Generating stack trace...
+Generating stack trace...
+
+
+
+
+[19] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffab51bad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffab65e480f+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffab657192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffab65e37fe+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10distributeIdEEvRNS_4ListIT_EE [0x6ed44eb5+0x455]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam12compressible52CFDHAMfluidTemperatureCoupledMixedFvPatchScalarField12updateCoeffsEv [0x6ece6b3a+0x13a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam17mixedFvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6ed23702+0x22]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam29mixedEnergyFvPatchScalarField12updateCoeffsEv [0x6b1da0a5+0x235]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libfluidThermophysicalModels.dll
+	(No symbol) [0x41f50a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x443b16]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x42b886]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47767b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffab62a4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffab65becdb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+[6] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffab51bad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffab65e480f+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffab657192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffab65e37fe+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10distributeIdEEvRNS_4ListIT_EE [0x6ed44eb5+0x455]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam12compressible52CFDHAMfluidTemperatureCoupledMixedFvPatchScalarField12updateCoeffsEv [0x6ece6b3a+0x13a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam17mixedFvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6ed23702+0x22]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam29mixedEnergyFvPatchScalarField12updateCoeffsEv [0x6b1da0a5+0x235]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libfluidThermophysicalModels.dll
+	(No symbol) [0x41f50a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x443b16]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x42b886]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47767b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffab62a4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffab65becdb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+[17] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffab51bad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffab65e480f+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffab657192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffab65e37fe+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10distributeIdEEvRNS_4ListIT_EE [0x6ed44eb5+0x455]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam12compressible52CFDHAMfluidTemperatureCoupledMixedFvPatchScalarField12updateCoeffsEv [0x6ece6b3a+0x13a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam17mixedFvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6ed23702+0x22]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam29mixedEnergyFvPatchScalarField12updateCoeffsEv [0x6b1da0a5+0x235]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libfluidThermophysicalModels.dll
+	(No symbol) [0x41f50a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x443b16]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x42b886]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47767b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffab62a4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffab65becdb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+[1] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffab51bad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffab65e480f+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffab657192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffab65e37fe+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10distributeIdEEvRNS_4ListIT_EE [0x6ed44eb5+0x455]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam12compressible52CFDHAMfluidTemperatureCoupledMixedFvPatchScalarField12updateCoeffsEv [0x6ece6b3a+0x13a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam17mixedFvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6ed23702+0x22]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam29mixedEnergyFvPatchScalarField12updateCoeffsEv [0x6b1da0a5+0x235]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libfluidThermophysicalModels.dll
+	(No symbol) [0x41f50a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x443b16]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x42b886]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47767b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffab62a4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffab65becdb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+[15] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffab51bad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffab65e480f+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffab657192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffab65e37fe+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10distributeIdEEvRNS_4ListIT_EE [0x6ed44eb5+0x455]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam12compressible52CFDHAMfluidTemperatureCoupledMixedFvPatchScalarField12updateCoeffsEv [0x6ece6b3a+0x13a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam17mixedFvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6ed23702+0x22]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libsolarLoad.dll
+	ZN4Foam29mixedEnergyFvPatchScalarField12updateCoeffsEv [0x6b1da0a5+0x235]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libfluidThermophysicalModels.dll
+	(No symbol) [0x41f50a]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x443b16]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x42b886]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47767b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffab62a4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffab65becdb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+
+job aborted:
+[ranks] message
+
+[0] terminated
+
+[1] process exited without calling finalize
+
+[2-5] terminated
+
+[6] process exited without calling finalize
+
+[7-16] terminated
+
+[17] process exited without calling finalize
+
+[18] terminated
+
+[19] process exited without calling finalize
+
+---- error analysis -----
+
+[1,6,17,19] on FOAM2
+urbanMicroClimateFoam ended prematurely and may have crashed. exit code 3
+
+---- error analysis -----

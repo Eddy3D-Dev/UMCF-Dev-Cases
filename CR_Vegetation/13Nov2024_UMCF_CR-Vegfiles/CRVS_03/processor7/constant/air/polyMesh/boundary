@@ -1,0 +1,158 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/air/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+15
+(
+    left
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18190;
+    }
+    right
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18190;
+    }
+    back
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18190;
+    }
+    front
+    {
+        type            patch;
+        nFaces          0;
+        startFace       18190;
+    }
+    bottom
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          255;
+        startFace       18190;
+    }
+    top
+    {
+        type            patch;
+        nFaces          24;
+        startFace       18445;
+    }
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          0;
+        startFace       18469;
+        sampleMode      nearestPatchFace;
+        sampleRegion    tower;
+        samplePatch     buildings_to_air;
+    }
+    procBoundary7to0
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          201;
+        startFace       18469;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    0;
+    }
+    procBoundary7to1
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          31;
+        startFace       18670;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    1;
+    }
+    procBoundary7to3
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          112;
+        startFace       18701;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    3;
+    }
+    procBoundary7to4
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          95;
+        startFace       18813;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    4;
+    }
+    procBoundary7to5
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          102;
+        startFace       18908;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    5;
+    }
+    procBoundary7to8
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          136;
+        startFace       19010;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    8;
+    }
+    procBoundary7to9
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          463;
+        startFace       19146;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    9;
+    }
+    procBoundary7to11
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          1;
+        startFace       19609;
+        matchTolerance  0.0001;
+        myProcNo        7;
+        neighbProcNo    11;
+    }
+)
+
+// ************************************************************************* //
