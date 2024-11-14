@@ -1,0 +1,89 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : calcLAI -region air -parallel
+Date   : Nov 14 2024
+Time   : 13:09:56
+Host   : "FOAM2"
+PID    : 36504
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/UMCF_CRVS_05b
+nProcs : 20
+Slaves : 
+19
+(
+"FOAM2.41652"
+"FOAM2.35292"
+"FOAM2.11972"
+"FOAM2.34512"
+"FOAM2.29600"
+"FOAM2.24988"
+"FOAM2.44696"
+"FOAM2.38296"
+"FOAM2.26248"
+"FOAM2.34820"
+"FOAM2.36696"
+"FOAM2.12848"
+"FOAM2.13200"
+"FOAM2.45460"
+"FOAM2.44848"
+"FOAM2.39544"
+"FOAM2.40644"
+"FOAM2.42104"
+"FOAM2.30400"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+timeDirs: 1(0	0)
+Create mesh air for time = 0
+
+
+Reading g
+Gravity is = g [0 1 -2 0 0 0 0] (0 0 -9.81)
+Vertical vector : (-0 -0 1)
+Creating interpolation setup...
+
+Interpolation from fvMesh to Cartesian mesh...minCellSizeFactor = 10, minCellL = 0.84528946
+ took 0.109 second(s).
+done !!! 
+Interpolation from cartesian to rotated cartesian mesh...
+
+vegLocalCoarseCf 437
+Solar ray direction 0, It took 0.016 second(s).
+vegLocalCoarseCf 437
+Solar ray direction 1, It took 0.031 second(s).
+vegLocalCoarseCf 437
+Solar ray direction 2, It took 0.031 second(s).
+vegLocalCoarseCf 437
+Solar ray direction 3, It took 0.032 second(s).
+vegLocalCoarseCf 437
+Solar ray direction 4, It took 0.031 second(s).
+
+Writing fields: kcLAI boundary
+
+Writing fields: div qrsw
+
+Total time took: 0.531 second(s).
+
+End
+
+Finalising parallel run

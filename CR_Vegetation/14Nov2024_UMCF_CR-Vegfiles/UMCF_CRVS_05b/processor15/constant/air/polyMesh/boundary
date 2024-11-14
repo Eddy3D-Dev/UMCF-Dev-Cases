@@ -1,0 +1,158 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/air/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+15
+(
+    left
+    {
+        type            patch;
+        nFaces          0;
+        startFace       6670;
+    }
+    right
+    {
+        type            patch;
+        nFaces          0;
+        startFace       6670;
+    }
+    back
+    {
+        type            patch;
+        nFaces          13;
+        startFace       6670;
+    }
+    front
+    {
+        type            patch;
+        nFaces          0;
+        startFace       6683;
+    }
+    bottom
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          177;
+        startFace       6683;
+    }
+    top
+    {
+        type            patch;
+        nFaces          23;
+        startFace       6860;
+    }
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          227;
+        startFace       6883;
+        sampleMode      nearestPatchFace;
+        sampleRegion    tower;
+        samplePatch     buildings_to_air;
+    }
+    procBoundary15to6
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          37;
+        startFace       7110;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    6;
+    }
+    procBoundary15to8
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          26;
+        startFace       7147;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    8;
+    }
+    procBoundary15to9
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          90;
+        startFace       7173;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    9;
+    }
+    procBoundary15to10
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          32;
+        startFace       7263;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    10;
+    }
+    procBoundary15to11
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          209;
+        startFace       7295;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    11;
+    }
+    procBoundary15to14
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          61;
+        startFace       7504;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    14;
+    }
+    procBoundary15to16
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          242;
+        startFace       7565;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    16;
+    }
+    procBoundary15to18
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          85;
+        startFace       7807;
+        matchTolerance  0.0001;
+        myProcNo        15;
+        neighbProcNo    18;
+    }
+)
+
+// ************************************************************************* //

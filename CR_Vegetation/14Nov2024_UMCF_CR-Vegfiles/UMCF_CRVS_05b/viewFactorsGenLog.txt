@@ -1,0 +1,163 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : viewFactorsGen -region vegetation -parallel
+Date   : Nov 14 2024
+Time   : 13:09:57
+Host   : "FOAM2"
+PID    : 18820
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/UMCF_CRVS_05b
+nProcs : 20
+Slaves : 
+19
+(
+"FOAM2.42888"
+"FOAM2.23420"
+"FOAM2.40840"
+"FOAM2.29592"
+"FOAM2.36904"
+"FOAM2.34700"
+"FOAM2.41040"
+"FOAM2.33804"
+"FOAM2.24948"
+"FOAM2.43616"
+"FOAM2.37324"
+"FOAM2.26188"
+"FOAM2.16704"
+"FOAM2.13760"
+"FOAM2.43220"
+"FOAM2.33336"
+"FOAM2.28196"
+"FOAM2.16244"
+"FOAM2.13876"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh vegetation for time = 0
+
+[0] 
+Creating single cell mesh...
+[1] 
+Creating single cell mesh...
+[2] 
+Creating single cell mesh...
+[16] 
+Creating single cell mesh...
+[18] 
+Creating single cell mesh...
+[8] 
+Creating single cell mesh...
+[3] 
+Creating single cell mesh...
+[4] 
+Creating single cell mesh...
+[5] 
+Creating single cell mesh...
+[17] 
+Creating single cell mesh...
+[19] 
+Creating single cell mesh...
+[14] 
+Creating single cell mesh...
+[12] 
+Creating single cell mesh...
+[6] 
+Creating single cell mesh...
+[10] 
+Creating single cell mesh...
+[15] 
+Creating single cell mesh...
+[9] 
+Creating single cell mesh...
+[11] 
+Creating single cell mesh...
+[13] 
+Creating single cell mesh...
+[7] 
+Creating single cell mesh...
+[0] 
+Created single cell mesh...
+[4] 
+Created single cell mesh...
+[2] 
+Created single cell mesh...
+[14] 
+Created single cell mesh...
+[9] 
+Created single cell mesh...
+[5] 
+Created single cell mesh...
+[8] 
+Created single cell mesh...
+[13] 
+Created single cell mesh...
+[7] 
+Created single cell mesh...
+[6] 
+Created single cell mesh...
+[12] 
+Created single cell mesh...
+[17] 
+Created single cell mesh...
+[15] 
+Created single cell mesh...
+[3] 
+Created single cell mesh...
+[16] 
+Created single cell mesh...
+[10] 
+Created single cell mesh...
+[1] 
+Created single cell mesh...
+[18] 
+Created single cell mesh...
+[19] 
+Created single cell mesh...
+[11] 
+Created single cell mesh...
+
+Total number of coarse faces: 6073
+[0] 
+View factor patches included in the calculation : 4(1 4 5 6)
+
+Calculating view factors...
+Writing view factor matrix...
+F11: 1.2600116e-31
+F14: 0.25967406
+F15: 0.32703853
+F16: 0.24191791
+F41: 0.057886219
+F44: 0
+F45: 0.40679944
+F46: 0.16308538
+F51: 0.063284306
+F54: 0.35381006
+F55: 0
+F56: 0.22056383
+F61: 0.075567922
+F64: 0.22842135
+F65: 0.3564912
+F66: 0.018389492
+End
+
+Finalising parallel run

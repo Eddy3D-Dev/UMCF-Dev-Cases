@@ -1,0 +1,125 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     0.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/vegetation/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+8
+(
+    left
+    {
+        type            mappedPatch;
+        nFaces          116;
+        startFace       135990;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     left;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    right
+    {
+        type            mappedPatch;
+        nFaces          116;
+        startFace       136106;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     right;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    back
+    {
+        type            mappedPatch;
+        nFaces          76;
+        startFace       136222;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     back;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    front
+    {
+        type            mappedPatch;
+        nFaces          241;
+        startFace       136298;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     front;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    bottom
+    {
+        type            mappedWall;
+        inGroups        List<word> 0();
+        nFaces          2138;
+        startFace       136539;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     bottom;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    top
+    {
+        type            mappedPatch;
+        nFaces          521;
+        startFace       138677;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     top;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 0();
+        nFaces          5258;
+        startFace       139198;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     tower;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+    air_to_vegetation
+    {
+        type            mappedWall;
+        inGroups        List<word> 0();
+        nFaces          2725;
+        startFace       144456;
+        sampleMode      nearestCell;
+        sampleRegion    air;
+        offsetMode      uniform;
+        offset          ( 0 0 0 );
+    }
+
+)
+
+
+// ************************************************************************* //

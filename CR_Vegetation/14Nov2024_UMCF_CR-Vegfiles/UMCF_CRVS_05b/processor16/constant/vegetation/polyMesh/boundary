@@ -1,0 +1,194 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/vegetation/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+15
+(
+    left
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     left;
+    }
+    right
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     right;
+    }
+    back
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     back;
+    }
+    front
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          0;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     front;
+    }
+    bottom
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          0;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     bottom;
+    }
+    top
+    {
+        type            mappedPatch;
+        inGroups        List<word> 1(mappedPatch);
+        nFaces          59;
+        startFace       6377;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     top;
+    }
+    tower
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          0;
+        startFace       6436;
+        sampleMode      nearestPatchFace;
+        sampleRegion    air;
+        samplePatch     tower;
+    }
+    air_to_vegetation
+    {
+        type            mappedWall;
+        inGroups        List<word> 
+2
+(
+wall
+mappedPatch
+)
+;
+        nFaces          413;
+        startFace       6436;
+        sampleMode      nearestCell;
+        sampleRegion    air;
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    procBoundary16to10
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          172;
+        startFace       6849;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    10;
+    }
+    procBoundary16to11
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          250;
+        startFace       7021;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    11;
+    }
+    procBoundary16to12
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          2;
+        startFace       7271;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    12;
+    }
+    procBoundary16to13
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          24;
+        startFace       7273;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    13;
+    }
+    procBoundary16to14
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          30;
+        startFace       7297;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    14;
+    }
+    procBoundary16to15
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          206;
+        startFace       7327;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    15;
+    }
+    procBoundary16to19
+    {
+        type            processor;
+        inGroups        List<word> 1(processor);
+        nFaces          208;
+        startFace       7533;
+        matchTolerance  0.0001;
+        myProcNo        16;
+        neighbProcNo    19;
+    }
+)
+
+// ************************************************************************* //
