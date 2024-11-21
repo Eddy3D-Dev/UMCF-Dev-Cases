@@ -1,0 +1,116 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : postProcess -region air -func probing01
+Date   : Nov 20 2024
+Time   : 14:05:34
+Host   : "FOAM2"
+PID    : 45692
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/UMCF_CRVS_jmp01
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh air for time = 0
+
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (221.67591 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (223.19886 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (224.7218 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (226.24474 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (246.04297 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (247.56591 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (249.08885 -21.502547 2) in any cell. Skipping location.
+--> FOAM Warning : 
+    From function virtual void Foam::probes::findElements(const Foam::fvMesh&)
+    in file probes/probes.C at line 119
+    Did not find location (250.61179 -21.502547 2) in any cell. Skipping location.
+Time = 0
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+Time = 3600
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+Time = 7200
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+Time = 10800
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+Time = 14400
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+Time = 18000
+
+Reading fields:
+    volScalarFields: w T
+    volVectorFields: U
+
+
+Executing functionObjects
+
+End
+

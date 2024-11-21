@@ -1,0 +1,366 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : reconstructPar -allRegions
+Date   : Nov 20 2024
+Time   : 14:02:02
+Host   : "FOAM2"
+PID    : 31100
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/UMCF_CRVS_jmp01
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Reconstructing fields for mesh air
+
+Time = 3600
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alphat
+        nut
+        w
+        p_rgh
+        rho
+        Tl
+        p
+        T
+        k
+        epsilon
+        gcr
+        rs
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 7200
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alphat
+        nut
+        w
+        p_rgh
+        rho
+        Tl
+        p
+        T
+        k
+        epsilon
+        gcr
+        rs
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 10800
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alphat
+        nut
+        w
+        p_rgh
+        rho
+        Tl
+        p
+        T
+        k
+        epsilon
+        gcr
+        rs
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 14400
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alphat
+        nut
+        w
+        p_rgh
+        rho
+        Tl
+        p
+        T
+        k
+        epsilon
+        gcr
+        rs
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 18000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        alphat
+        nut
+        w
+        p_rgh
+        rho
+        Tl
+        p
+        T
+        k
+        epsilon
+        gcr
+        rs
+
+    Reconstructing volVectorFields
+
+        U
+
+    Reconstructing surfaceScalarFields
+
+        phi
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+
+
+Reconstructing fields for mesh vegetation
+
+Time = 3600
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        qs
+        qr
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 7200
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        qs
+        qr
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 10800
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        qs
+        qr
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 14400
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        qs
+        qr
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 18000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        T
+        qs
+        qr
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+
+
+Reconstructing fields for mesh tower
+
+Time = 3600
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        Ts
+        ws
+        pc
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 7200
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        Ts
+        ws
+        pc
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 10800
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        Ts
+        ws
+        pc
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 14400
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        Ts
+        ws
+        pc
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+Time = 18000
+
+Reconstructing FV fields
+
+    Reconstructing volScalarFields
+
+        Ts
+        ws
+        pc
+
+Reconstructing point fields
+
+No point fields
+
+No lagrangian fields
+
+
+End
+

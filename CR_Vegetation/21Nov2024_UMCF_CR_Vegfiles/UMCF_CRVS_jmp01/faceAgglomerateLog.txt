@@ -1,0 +1,68 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : faceAgglomerate -region vegetation -parallel
+Date   : Nov 20 2024
+Time   : 13:36:45
+Host   : "FOAM2"
+PID    : 4704
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/UMCF_CRVS_jmp01
+nProcs : 12
+Slaves : 
+11
+(
+"FOAM2.40996"
+"FOAM2.35992"
+"FOAM2.36316"
+"FOAM2.25808"
+"FOAM2.36664"
+"FOAM2.35456"
+"FOAM2.40268"
+"FOAM2.37136"
+"FOAM2.34220"
+"FOAM2.36416"
+"FOAM2.45780"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh vegetation for time = 0
+
+
+Agglomerating patch : left
+
+Agglomerating patch : right
+
+Agglomerating patch : back
+
+Agglomerating patch : front
+
+Agglomerating patch : top
+
+Agglomerating patch : bottom
+
+Agglomerating patch : air_to_vegetation
+
+Writing facesAgglomeration
+End
+
+Finalising parallel run
