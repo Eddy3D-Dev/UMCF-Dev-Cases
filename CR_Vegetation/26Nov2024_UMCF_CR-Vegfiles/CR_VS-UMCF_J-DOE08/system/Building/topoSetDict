@@ -1,0 +1,33 @@
+FoamFile
+{
+  version    2.0;
+  format    ascii;
+  class    dictionary;
+  object    topoSetDict;
+}
+actions
+(
+  {
+    name    Building;
+    type    cellSet;
+    action    new;
+    source    rotatedBoxToCell;
+    sourceInfo
+    {
+      origin    (804.9114379882812 184.856201171875 -1);
+      i    (0 -53 0);
+      j    (22.10858154296875 0 0);
+      k    (0 0 13);
+    }
+  }
+  {
+    name    Building;
+    type    cellZoneSet;
+    action    new;
+    source    setToCellZone;
+    sourceInfo
+    {
+      set    Building;
+    }
+  }
+);

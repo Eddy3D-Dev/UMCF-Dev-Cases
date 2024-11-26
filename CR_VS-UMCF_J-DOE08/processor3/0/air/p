@@ -1,0 +1,97 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/air";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 100000;
+
+boundaryField
+{
+    left
+    {
+        type            slip;
+    }
+    right
+    {
+        type            slip;
+    }
+    back
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    front
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    bottom
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    top
+    {
+        type            slip;
+    }
+    Building
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    procBoundary3to1
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to4
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to5
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to6
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to8
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to9
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+    procBoundary3to10
+    {
+        type            processor;
+        value           uniform 100000;
+    }
+}
+
+
+// ************************************************************************* //

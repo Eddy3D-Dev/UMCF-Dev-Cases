@@ -1,0 +1,2533 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 8-53cd1468e263
+Exec   : urbanMicroClimateFoam -parallel
+Date   : Nov 26 2024
+Time   : 16:44:22
+Host   : "FOAM2"
+PID    : 23800
+I/O    : uncollated
+Case   : C:/MetaFoam_Cases/CR_VS-UMCF_J-DOE08
+nProcs : 12
+Slaves : 
+11
+(
+"FOAM2.18884"
+"FOAM2.23304"
+"FOAM2.20404"
+"FOAM2.24404"
+"FOAM2.21872"
+"FOAM2.23532"
+"FOAM2.22336"
+"FOAM2.18308"
+"FOAM2.22656"
+"FOAM2.22244"
+"FOAM2.18504"
+)
+
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create fluid mesh for region air for time = 0
+
+Create solid mesh for region Building for time = 0
+
+Create vegetation mesh for region vegetation for time = 0
+
+*** Reading fluid mesh thermophysical properties for region air
+
+    Adding to thermoFluid
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState Boussinesq;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+    Adding to rhoFluid
+
+Radiation model not active: radiationProperties not found
+Selecting radiationModel none
+solarLoad model not active: solarLoadProperties not found
+Selecting solarLoadModel none
+Selecting vegetationModel simplifiedVegetation
+ Defined simplifiedVegetation model
+Grass model not active: grassProperties not found
+Selecting grassModel none
+    Adding to UFluid
+
+    Adding to wFluid
+
+    Adding to gcrFluid
+
+    Adding to phiFluid
+
+    Adding to gFluid
+
+    Adding to turbulence
+
+Selecting turbulence model type RAS
+Selecting RAS turbulence model realizableKE
+RAS
+{
+    RASModel        realizableKE;
+    turbulence      on;
+    printCoeffs     on;
+    A0              4;
+    C2              1.9;
+    sigmak          1;
+    sigmaEps        1.2;
+}
+
+    Adding to thermophysical transport
+
+Selecting thermophysical transport type RAS
+Selecting default RAS thermophysical transport model eddyDiffusivity
+    Adding to ghFluid
+
+    Adding to ghfFluid
+
+pressureControl
+    pMax 120000
+    pMin 80000
+
+    Adding MRF
+
+No MRF models present
+
+    Adding fvOptions
+
+Creating finite volume options from "system/fvOptions"
+
+Selecting finite volume options model type limitTemperature
+    Source: limitT
+    - selecting all cells
+    - selected 61092 cell(s) with volume 3827926.9
+    Adding solidTransportProperties
+
+    Adding to rho_mSolid
+
+    Adding to cap_mSolid
+
+    Adding to lambda_mSolid
+
+    Adding to TsSolid
+
+    Adding to wsSolid
+
+    Adding to pcSolid
+
+    Adding to KrelSolid
+
+    Adding to K_vSolid
+
+    Adding to K_ptSolid
+
+    Adding to CrelSolid
+
+    Adding to gSolid
+
+*** Reading fluid mesh thermophysical properties for region vegetation
+
+    Adding to TVeg
+
+Selecting radiationModel viewFactorSky
+Selecting absorptionEmissionModel none
+Selecting scatterModel none
+Selecting solarLoadModel directAndDiffuse
+Selecting solarLoadAbsorptionEmissionModel none
+Selecting solarLoadScatterModel none
+Selected patches:
+18
+(
+0
+1
+2
+3
+4
+5
+6
+7
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+)
+
+Number of coarse faces:675
+wallPatchOrNot_: 
+18
+(
+0
+0
+0
+0
+1
+0
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+)
+
+nLocalWallCoarseFaces_: 675
+Selected patches:8(0 1 2 3 4 5 6 7)
+Number of coarse faces:675
+wallPatchOrNot_: 7(0 0 0 0 1 0 1)
+nLocalWallCoarseFaces_: 675
+Total number of clusters : 8691
+Total number of fine faces : 12186
+Insert elements in the matrix...
+Smoothing the matrix...
+
+Time = 3600
+
+Solving for fluid region air
+
+SIMPLE: Convergence criteria found
+        p_rgh: tolerance 0.001
+        U: tolerance 0.0001
+        h: tolerance 0.0001
+        w: tolerance 0.0001
+        "(k|epsilon|omega)": tolerance 0.0001
+        Tl: tolerance 0.0001
+
+Internal iteration number: 1
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1, Final residual = 0.0043407101, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 1, Final residual = 0.0072874835, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 1, Final residual = 0.0010820128, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 1, Final residual = 0.0072971179, No Iterations 2
+Min/max T:290.13521 300.35
+GAMG:  Solving for p_rgh, Initial residual = 0.99129208, Final residual = 0.0081719291, No Iterations 4
+time step continuity errors : sum local = 40.389232, global = -6.6555855, cumulative = -6.6555855
+DILUPBiCGStab:  Solving for w, Initial residual = 1, Final residual = 0.007091672, No Iterations 5
+bounding magU, min: 0 max: 43.974749 average: 7.1538918
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.15k, iteration i=0
+    max leaf temp tl=293.30092 K, iteration i=1
+    max leaf temp tl=293.30019 K, iteration i=2
+    max leaf temp tl=293.29969 K, iteration i=3
+    max leaf temp tl=293.29934 K, iteration i=4
+    max leaf temp tl=293.29909 K, iteration i=5
+    max leaf temp tl=293.29892 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.024502084, Final relative residual = 8.3539634e-05, No Iterations 6
+temperature parameters: max Tl = 293.28177, min T = 290.13521, max T = 300.045
+resistances: max rs = 5664.5562, max ra = 13.858316
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.010220562, Final residual = 5.2064033e-05, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 1, Final residual = 0.0042765217, No Iterations 1
+
+Internal iteration number: 2
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.25376491, Final residual = 0.00067787756, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.35444408, Final residual = 0.0010051724, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.2765727, Final residual = 0.00099304261, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.36093738, Final residual = 0.0012991782, No Iterations 2
+Min/max T:291.7003 301.18955
+GAMG:  Solving for p_rgh, Initial residual = 0.59387271, Final residual = 0.0055159643, No Iterations 4
+time step continuity errors : sum local = 0.0038416276, global = -0.00015201508, cumulative = -6.6557375
+DILUPBiCGStab:  Solving for w, Initial residual = 0.30005788, Final residual = 0.0018152244, No Iterations 5
+bounding magU, min: 0 max: 36.172415 average: 7.6344592
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.28177k, iteration i=0
+    max leaf temp tl=292.58942 K, iteration i=1
+    max leaf temp tl=292.59142 K, iteration i=2
+    max leaf temp tl=292.5928 K, iteration i=3
+    max leaf temp tl=292.59404 K, iteration i=4
+    max leaf temp tl=292.59494 K, iteration i=5
+    max leaf temp tl=292.59556 K, iteration i=6
+    max leaf temp tl=292.596 K, iteration i=7
+    max leaf temp tl=292.5963 K, iteration i=8
+    max leaf temp tl=292.59651 K, iteration i=9
+    max leaf temp tl=292.59665 K, iteration i=10
+    max leaf temp tl=292.59675 K, iteration i=11
+    max leaf temp tl=292.59683 K, iteration i=12
+Vegetation model:  Solving for Tl, Final residual = 0.024384426, Final relative residual = 8.3337971e-05, No Iterations 12
+temperature parameters: max Tl = 292.60552, min T = 291.7003, max T = 301.18955
+resistances: max rs = 5509.0042, max ra = 21.632843
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0014664339, Final residual = 5.8548061e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.11322538, Final residual = 0.00048550965, No Iterations 1
+
+Internal iteration number: 3
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.21448409, Final residual = 0.00037958033, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.27965539, Final residual = 0.00065751409, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.7894206, Final residual = 0.0031895453, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.13770387, Final residual = 0.00045952936, No Iterations 2
+Min/max T:292.49086 300.88082
+GAMG:  Solving for p_rgh, Initial residual = 0.64401643, Final residual = 0.0024038119, No Iterations 5
+time step continuity errors : sum local = 0.0019660071, global = 0.00029955507, cumulative = -6.6554379
+DILUPBiCGStab:  Solving for w, Initial residual = 0.19322103, Final residual = 0.0012690861, No Iterations 4
+bounding magU, min: 0 max: 25.025473 average: 7.2613169
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 292.60552k, iteration i=0
+    max leaf temp tl=292.78971 K, iteration i=1
+    max leaf temp tl=292.78582 K, iteration i=2
+    max leaf temp tl=292.78309 K, iteration i=3
+    max leaf temp tl=292.78119 K, iteration i=4
+    max leaf temp tl=292.78013 K, iteration i=5
+    max leaf temp tl=292.7795 K, iteration i=6
+    max leaf temp tl=292.77907 K, iteration i=7
+    max leaf temp tl=292.77876 K, iteration i=8
+    max leaf temp tl=292.77855 K, iteration i=9
+    max leaf temp tl=292.7784 K, iteration i=10
+Vegetation model:  Solving for Tl, Final residual = 0.028658116, Final relative residual = 9.7883301e-05, No Iterations 10
+temperature parameters: max Tl = 292.76446, min T = 292.49086, max T = 300.88082
+resistances: max rs = 5560.6801, max ra = 20.284555
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0012756473, Final residual = 5.1670186e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.14035659, Final residual = 0.00058518219, No Iterations 1
+
+Internal iteration number: 4
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.27683086, Final residual = 0.00081719333, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.44659167, Final residual = 0.0011437456, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.35458116, Final residual = 0.0010571776, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.093717078, Final residual = 0.00053060047, No Iterations 2
+Min/max T:293.43333 300.64374
+GAMG:  Solving for p_rgh, Initial residual = 0.65543, Final residual = 0.0056245652, No Iterations 4
+time step continuity errors : sum local = 0.0024335706, global = 2.8681466e-05, cumulative = -6.6554092
+DILUPBiCGStab:  Solving for w, Initial residual = 0.11024601, Final residual = 0.00036174112, No Iterations 5
+bounding magU, min: 0 max: 18.156374 average: 6.5546425
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 292.76446k, iteration i=0
+    max leaf temp tl=294.29267 K, iteration i=1
+    max leaf temp tl=294.28421 K, iteration i=2
+    max leaf temp tl=294.27943 K, iteration i=3
+    max leaf temp tl=294.27605 K, iteration i=4
+    max leaf temp tl=294.27367 K, iteration i=5
+    max leaf temp tl=294.27201 K, iteration i=6
+    max leaf temp tl=294.27085 K, iteration i=7
+    max leaf temp tl=294.27004 K, iteration i=8
+    max leaf temp tl=294.26947 K, iteration i=9
+    max leaf temp tl=294.26908 K, iteration i=10
+    max leaf temp tl=294.2688 K, iteration i=11
+    max leaf temp tl=294.26861 K, iteration i=12
+    max leaf temp tl=294.26848 K, iteration i=13
+Vegetation model:  Solving for Tl, Final residual = 0.021360338, Final relative residual = 7.2587926e-05, No Iterations 13
+temperature parameters: max Tl = 294.25477, min T = 293.43333, max T = 300.64374
+resistances: max rs = 5770.7814, max ra = 16.789414
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0014551089, Final residual = 5.5935391e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.095072032, Final residual = 0.00039443687, No Iterations 1
+
+Internal iteration number: 5
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.24962379, Final residual = 0.002405042, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.39526912, Final residual = 0.001028673, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.77588126, Final residual = 0.0071493842, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.081617082, Final residual = 0.00029542648, No Iterations 3
+Min/max T:293.34334 300.42375
+GAMG:  Solving for p_rgh, Initial residual = 0.56776687, Final residual = 0.0047191352, No Iterations 4
+time step continuity errors : sum local = 0.0022707296, global = -0.00036443499, cumulative = -6.6557737
+DILUPBiCGStab:  Solving for w, Initial residual = 0.064866797, Final residual = 0.00030624163, No Iterations 5
+bounding magU, min: 0 max: 15.244211 average: 5.9729463
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.25477k, iteration i=0
+    max leaf temp tl=293.81946 K, iteration i=1
+    max leaf temp tl=293.82141 K, iteration i=2
+    max leaf temp tl=293.82286 K, iteration i=3
+    max leaf temp tl=293.82387 K, iteration i=4
+    max leaf temp tl=293.82456 K, iteration i=5
+    max leaf temp tl=293.82505 K, iteration i=6
+    max leaf temp tl=293.82538 K, iteration i=7
+    max leaf temp tl=293.82562 K, iteration i=8
+    max leaf temp tl=293.82578 K, iteration i=9
+    max leaf temp tl=293.82589 K, iteration i=10
+Vegetation model:  Solving for Tl, Final residual = 0.021330042, Final relative residual = 7.2594156e-05, No Iterations 10
+temperature parameters: max Tl = 293.83746, min T = 293.34334, max T = 300.42375
+resistances: max rs = 5680.523, max ra = 16.839478
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0013689626, Final residual = 4.9598453e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.065503473, Final residual = 0.00034568963, No Iterations 1
+
+Internal iteration number: 6
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.13556345, Final residual = 0.00027314373, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.41934522, Final residual = 0.00094005795, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.32450827, Final residual = 0.0017666776, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.06546965, Final residual = 0.00062702581, No Iterations 2
+Min/max T:292.73394 300.4452
+GAMG:  Solving for p_rgh, Initial residual = 0.5769883, Final residual = 0.0056115754, No Iterations 4
+time step continuity errors : sum local = 0.0014255379, global = 0.00010676119, cumulative = -6.6556669
+DILUPBiCGStab:  Solving for w, Initial residual = 0.039650323, Final residual = 0.00026615248, No Iterations 4
+bounding magU, min: 0 max: 16.49568 average: 5.7633711
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.83746k, iteration i=0
+    max leaf temp tl=293.14386 K, iteration i=1
+    max leaf temp tl=293.14688 K, iteration i=2
+    max leaf temp tl=293.14896 K, iteration i=3
+    max leaf temp tl=293.1504 K, iteration i=4
+    max leaf temp tl=293.15139 K, iteration i=5
+    max leaf temp tl=293.15208 K, iteration i=6
+    max leaf temp tl=293.15256 K, iteration i=7
+    max leaf temp tl=293.15289 K, iteration i=8
+    max leaf temp tl=293.15313 K, iteration i=9
+    max leaf temp tl=293.15329 K, iteration i=10
+    max leaf temp tl=293.1534 K, iteration i=11
+Vegetation model:  Solving for Tl, Final residual = 0.022424732, Final relative residual = 7.6494874e-05, No Iterations 11
+temperature parameters: max Tl = 293.16623, min T = 292.73394, max T = 300.4452
+resistances: max rs = 5537.5623, max ra = 18.708947
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0012527381, Final residual = 4.6013047e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.058368822, Final residual = 0.00035173233, No Iterations 1
+
+Internal iteration number: 7
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.088684782, Final residual = 0.00021125534, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.29763077, Final residual = 0.00064210755, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.83953295, Final residual = 0.0044895502, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.050322749, Final residual = 0.00016181555, No Iterations 2
+Min/max T:292.92324 300.50176
+GAMG:  Solving for p_rgh, Initial residual = 0.53051269, Final residual = 0.0035202455, No Iterations 4
+time step continuity errors : sum local = 0.00092128045, global = 0.00016217273, cumulative = -6.6555047
+DILUPBiCGStab:  Solving for w, Initial residual = 0.020939552, Final residual = 5.9937104e-05, No Iterations 4
+bounding magU, min: 0 max: 17.431318 average: 5.6331213
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.16623k, iteration i=0
+    max leaf temp tl=293.46792 K, iteration i=1
+    max leaf temp tl=293.46674 K, iteration i=2
+    max leaf temp tl=293.46592 K, iteration i=3
+    max leaf temp tl=293.46534 K, iteration i=4
+    max leaf temp tl=293.46494 K, iteration i=5
+    max leaf temp tl=293.46466 K, iteration i=6
+    max leaf temp tl=293.46447 K, iteration i=7
+    max leaf temp tl=293.46433 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.025978944, Final relative residual = 8.8525048e-05, No Iterations 8
+temperature parameters: max Tl = 293.4471, min T = 292.92324, max T = 300.50176
+resistances: max rs = 5551.2969, max ra = 21.047194
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0011814835, Final residual = 5.0036929e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.058388748, Final residual = 0.00043420241, No Iterations 1
+
+Internal iteration number: 8
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.08996674, Final residual = 0.00088689512, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.41630252, Final residual = 0.00092723805, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.44642957, Final residual = 0.0017024993, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.045986478, Final residual = 0.0001580604, No Iterations 2
+Min/max T:293.33307 300.58984
+GAMG:  Solving for p_rgh, Initial residual = 0.43825011, Final residual = 0.0036552943, No Iterations 4
+time step continuity errors : sum local = 0.00073631216, global = -0.00011752512, cumulative = -6.6556223
+DILUPBiCGStab:  Solving for w, Initial residual = 0.013114219, Final residual = 4.8240195e-05, No Iterations 4
+bounding magU, min: 0 max: 16.198377 average: 5.3966735
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.4471k, iteration i=0
+    max leaf temp tl=294.0789 K, iteration i=1
+    max leaf temp tl=294.07637 K, iteration i=2
+    max leaf temp tl=294.0746 K, iteration i=3
+    max leaf temp tl=294.07336 K, iteration i=4
+    max leaf temp tl=294.07249 K, iteration i=5
+    max leaf temp tl=294.07189 K, iteration i=6
+    max leaf temp tl=294.07146 K, iteration i=7
+    max leaf temp tl=294.07117 K, iteration i=8
+    max leaf temp tl=294.07096 K, iteration i=9
+    max leaf temp tl=294.07082 K, iteration i=10
+Vegetation model:  Solving for Tl, Final residual = 0.024571107, Final relative residual = 8.3555068e-05, No Iterations 10
+temperature parameters: max Tl = 294.05371, min T = 293.33307, max T = 300.58984
+resistances: max rs = 5614.1022, max ra = 24.664041
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.001069949, Final residual = 4.8378697e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.051503398, Final residual = 0.00044593232, No Iterations 1
+
+Internal iteration number: 9
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.081936841, Final residual = 0.00076604105, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.34267111, Final residual = 0.00085230572, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.5567231, Final residual = 0.0019197709, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.044203834, Final residual = 0.00016500184, No Iterations 2
+Min/max T:293.22113 300.35981
+GAMG:  Solving for p_rgh, Initial residual = 0.39448073, Final residual = 0.0014117283, No Iterations 4
+time step continuity errors : sum local = 0.00028679799, global = -5.8693307e-05, cumulative = -6.655681
+DILUPBiCGStab:  Solving for w, Initial residual = 0.011300991, Final residual = 8.1894658e-05, No Iterations 3
+bounding magU, min: 0 max: 14.79558 average: 5.1459834
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.05371k, iteration i=0
+    max leaf temp tl=294.09882 K, iteration i=1
+    max leaf temp tl=294.09859 K, iteration i=2
+    max leaf temp tl=294.09843 K, iteration i=3
+    max leaf temp tl=294.09832 K, iteration i=4
+    max leaf temp tl=294.09824 K, iteration i=5
+    max leaf temp tl=294.09819 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.020986051, Final relative residual = 7.1357296e-05, No Iterations 6
+temperature parameters: max Tl = 294.09236, min T = 293.22113, max T = 300.35981
+resistances: max rs = 5585.8781, max ra = 26.314356
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00088707242, Final residual = 4.2490671e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.042140625, Final residual = 0.00040239702, No Iterations 1
+
+Internal iteration number: 10
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.05424478, Final residual = 0.00052288812, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.27049511, Final residual = 0.0014720241, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.31886324, Final residual = 0.0013503939, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.043025508, Final residual = 0.00017507081, No Iterations 2
+Min/max T:293.0443 300.38811
+GAMG:  Solving for p_rgh, Initial residual = 0.60086862, Final residual = 0.0055567189, No Iterations 4
+time step continuity errors : sum local = 0.00052858231, global = 4.6786869e-05, cumulative = -6.6556342
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0064159277, Final residual = 4.5318352e-05, No Iterations 3
+bounding magU, min: 0 max: 15.725327 average: 4.9835618
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.09236k, iteration i=0
+    max leaf temp tl=293.97703 K, iteration i=1
+    max leaf temp tl=293.97756 K, iteration i=2
+    max leaf temp tl=293.97793 K, iteration i=3
+    max leaf temp tl=293.97818 K, iteration i=4
+    max leaf temp tl=293.97836 K, iteration i=5
+    max leaf temp tl=293.97848 K, iteration i=6
+    max leaf temp tl=293.97857 K, iteration i=7
+    max leaf temp tl=293.97863 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.021268725, Final relative residual = 7.234786e-05, No Iterations 8
+temperature parameters: max Tl = 293.98498, min T = 293.0443, max T = 300.38811
+resistances: max rs = 5539.4502, max ra = 27.505565
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00076000714, Final residual = 3.4735209e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.037287426, Final residual = 5.2646775e-05, No Iterations 2
+
+Internal iteration number: 11
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.034847591, Final residual = 0.00033328191, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.30739161, Final residual = 0.00064977337, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.77132491, Final residual = 0.0021495065, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.036177745, Final residual = 0.00014925017, No Iterations 2
+Min/max T:293.10169 300.3967
+GAMG:  Solving for p_rgh, Initial residual = 0.47941106, Final residual = 0.0035272244, No Iterations 3
+time step continuity errors : sum local = 0.00033238857, global = 8.0250805e-05, cumulative = -6.6555539
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0040860755, Final residual = 3.2590129e-05, No Iterations 3
+bounding magU, min: 0 max: 16.130126 average: 4.8484124
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 293.98498k, iteration i=0
+    max leaf temp tl=294.15922 K, iteration i=1
+    max leaf temp tl=294.15841 K, iteration i=2
+    max leaf temp tl=294.15785 K, iteration i=3
+    max leaf temp tl=294.15746 K, iteration i=4
+    max leaf temp tl=294.15719 K, iteration i=5
+    max leaf temp tl=294.157 K, iteration i=6
+    max leaf temp tl=294.15687 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.027509497, Final relative residual = 9.3519821e-05, No Iterations 7
+temperature parameters: max Tl = 294.14308, min T = 293.10169, max T = 300.3967
+resistances: max rs = 5557.1675, max ra = 30.983404
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00073218501, Final residual = 3.4826827e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.037630002, Final residual = 3.0822992e-05, No Iterations 2
+
+Internal iteration number: 12
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.033284201, Final residual = 0.00019346423, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.20714536, Final residual = 0.00064786665, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.49127885, Final residual = 0.0014846658, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.034773776, Final residual = 0.00014112647, No Iterations 2
+Min/max T:293.2556 300.4754
+GAMG:  Solving for p_rgh, Initial residual = 0.43256675, Final residual = 0.003141355, No Iterations 4
+time step continuity errors : sum local = 0.00027664298, global = -2.8321913e-05, cumulative = -6.6555822
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0046871447, Final residual = 3.5265832e-05, No Iterations 3
+bounding magU, min: 0 max: 15.39352 average: 4.6999711
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.14308k, iteration i=0
+    max leaf temp tl=294.43808 K, iteration i=1
+    max leaf temp tl=294.43668 K, iteration i=2
+    max leaf temp tl=294.43571 K, iteration i=3
+    max leaf temp tl=294.43503 K, iteration i=4
+    max leaf temp tl=294.43455 K, iteration i=5
+    max leaf temp tl=294.43422 K, iteration i=6
+    max leaf temp tl=294.43399 K, iteration i=7
+    max leaf temp tl=294.43383 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.027620592, Final relative residual = 9.3809165e-05, No Iterations 8
+temperature parameters: max Tl = 294.41762, min T = 293.2556, max T = 300.4754
+resistances: max rs = 5600.2712, max ra = 37.90164
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00071178281, Final residual = 3.6580245e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.037830273, Final residual = 3.2434143e-05, No Iterations 2
+
+Internal iteration number: 13
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.034565926, Final residual = 0.00024783609, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.22299544, Final residual = 0.00042445148, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.27812028, Final residual = 0.0021746294, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.032160099, Final residual = 0.00012927724, No Iterations 2
+Min/max T:293.23508 300.43866
+GAMG:  Solving for p_rgh, Initial residual = 0.27678823, Final residual = 0.001986016, No Iterations 3
+time step continuity errors : sum local = 0.00019187109, global = -5.8798389e-05, cumulative = -6.655641
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0058715385, Final residual = 1.5933824e-05, No Iterations 4
+bounding magU, min: 0 max: 15.01555 average: 4.5473446
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.41762k, iteration i=0
+    max leaf temp tl=294.59352 K, iteration i=1
+    max leaf temp tl=294.59266 K, iteration i=2
+    max leaf temp tl=294.59207 K, iteration i=3
+    max leaf temp tl=294.59165 K, iteration i=4
+    max leaf temp tl=294.59136 K, iteration i=5
+    max leaf temp tl=294.59116 K, iteration i=6
+    max leaf temp tl=294.59102 K, iteration i=7
+    max leaf temp tl=294.59092 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.02088179, Final relative residual = 7.0884026e-05, No Iterations 8
+temperature parameters: max Tl = 294.58127, min T = 293.23508, max T = 300.43866
+resistances: max rs = 5634.736, max ra = 40.348734
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00068529096, Final residual = 3.6827307e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.036036159, Final residual = 3.6625367e-05, No Iterations 2
+
+Internal iteration number: 14
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.024986685, Final residual = 0.00019013859, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.15168791, Final residual = 0.00032368683, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.31495438, Final residual = 0.00066738052, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.03189801, Final residual = 0.00012927845, No Iterations 2
+Min/max T:293.17064 300.38053
+GAMG:  Solving for p_rgh, Initial residual = 0.7523671, Final residual = 0.0032141791, No Iterations 4
+time step continuity errors : sum local = 0.00010519103, global = -2.0358181e-05, cumulative = -6.6556614
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0038603088, Final residual = 3.5167048e-05, No Iterations 3
+bounding magU, min: 0 max: 15.353773 average: 4.4302329
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.58127k, iteration i=0
+    max leaf temp tl=294.73686 K, iteration i=1
+    max leaf temp tl=294.73609 K, iteration i=2
+    max leaf temp tl=294.73554 K, iteration i=3
+    max leaf temp tl=294.73517 K, iteration i=4
+    max leaf temp tl=294.7349 K, iteration i=5
+    max leaf temp tl=294.73472 K, iteration i=6
+    max leaf temp tl=294.73459 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.027536553, Final relative residual = 9.3428304e-05, No Iterations 7
+temperature parameters: max Tl = 294.72232, min T = 293.17064, max T = 300.38053
+resistances: max rs = 5668.0154, max ra = 38.682767
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0006584923, Final residual = 3.6222721e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.033182698, Final residual = 4.9030909e-05, No Iterations 2
+
+Internal iteration number: 15
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.017133829, Final residual = 0.00010976408, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.17367274, Final residual = 0.00042333389, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.37117848, Final residual = 0.00063418951, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.027474096, Final residual = 0.00011054559, No Iterations 2
+Min/max T:293.15155 300.38798
+GAMG:  Solving for p_rgh, Initial residual = 0.2846179, Final residual = 0.00081901378, No Iterations 4
+time step continuity errors : sum local = 4.2606588e-05, global = 8.3318584e-06, cumulative = -6.6556531
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0026601468, Final residual = 1.6971491e-05, No Iterations 3
+bounding magU, min: 0 max: 15.205542 average: 4.3562071
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 294.72232k, iteration i=0
+    max leaf temp tl=295.0235 K, iteration i=1
+    max leaf temp tl=295.0235 K, iteration i=2
+    max leaf temp tl=295.0235 K, iteration i=3
+    max leaf temp tl=295.0235 K, iteration i=4
+    max leaf temp tl=295.0235 K, iteration i=5
+    max leaf temp tl=295.0235 K, iteration i=6
+    max leaf temp tl=295.0235 K, iteration i=7
+    max leaf temp tl=295.0235 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.028592261, Final relative residual = 9.6915198e-05, No Iterations 8
+temperature parameters: max Tl = 295.00349, min T = 293.15155, max T = 300.38798
+resistances: max rs = 5719.0631, max ra = 39.98014
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0006439966, Final residual = 3.6919624e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.032356884, Final residual = 6.9923827e-05, No Iterations 2
+
+Internal iteration number: 16
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.01360079, Final residual = 8.8614127e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.14016858, Final residual = 0.00034162687, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.42461723, Final residual = 0.0034902057, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.026070807, Final residual = 0.00010019385, No Iterations 2
+Min/max T:293.21491 300.42579
+GAMG:  Solving for p_rgh, Initial residual = 0.60128348, Final residual = 0.003370137, No Iterations 3
+time step continuity errors : sum local = 7.8527999e-05, global = 2.8460938e-05, cumulative = -6.6556246
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0023083556, Final residual = 1.0212621e-05, No Iterations 4
+bounding magU, min: 0 max: 14.800818 average: 4.3026171
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 295.00349k, iteration i=0
+    max leaf temp tl=295.43103 K, iteration i=1
+    max leaf temp tl=295.43103 K, iteration i=2
+    max leaf temp tl=295.43103 K, iteration i=3
+    max leaf temp tl=295.43103 K, iteration i=4
+    max leaf temp tl=295.43103 K, iteration i=5
+    max leaf temp tl=295.43103 K, iteration i=6
+    max leaf temp tl=295.43103 K, iteration i=7
+    max leaf temp tl=295.43103 K, iteration i=8
+    max leaf temp tl=295.43103 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.025191775, Final relative residual = 8.5271254e-05, No Iterations 9
+temperature parameters: max Tl = 295.41378, min T = 293.21491, max T = 300.42579
+resistances: max rs = 5782.1612, max ra = 43.543415
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00063503595, Final residual = 4.3017664e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.032370209, Final residual = 8.271669e-05, No Iterations 2
+
+Internal iteration number: 17
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.01255802, Final residual = 0.00010374618, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.096397239, Final residual = 0.00017316296, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.17251702, Final residual = 0.00037963707, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.025048384, Final residual = 9.4624319e-05, No Iterations 2
+Min/max T:293.25671 300.45028
+GAMG:  Solving for p_rgh, Initial residual = 0.24157919, Final residual = 0.00092463791, No Iterations 4
+time step continuity errors : sum local = 4.0460145e-05, global = -7.9673551e-06, cumulative = -6.6556326
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0021836343, Final residual = 1.4340863e-05, No Iterations 3
+bounding magU, min: 0 max: 14.49172 average: 4.2331841
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 295.41378k, iteration i=0
+    max leaf temp tl=295.82616 K, iteration i=1
+    max leaf temp tl=295.82616 K, iteration i=2
+    max leaf temp tl=295.82616 K, iteration i=3
+    max leaf temp tl=295.82616 K, iteration i=4
+    max leaf temp tl=295.82616 K, iteration i=5
+    max leaf temp tl=295.82616 K, iteration i=6
+    max leaf temp tl=295.82616 K, iteration i=7
+    max leaf temp tl=295.82616 K, iteration i=8
+    max leaf temp tl=295.82616 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.026067033, Final relative residual = 8.8116053e-05, No Iterations 9
+temperature parameters: max Tl = 295.80951, min T = 293.25671, max T = 300.45028
+resistances: max rs = 5842.4316, max ra = 44.726599
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00063447022, Final residual = 4.7163724e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.032092753, Final residual = 9.5925112e-05, No Iterations 2
+
+Internal iteration number: 18
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0086964352, Final residual = 6.791903e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.10886621, Final residual = 0.0010431284, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.16146177, Final residual = 0.0011168696, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.024037443, Final residual = 8.7727865e-05, No Iterations 2
+Min/max T:293.24683 300.43482
+GAMG:  Solving for p_rgh, Initial residual = 0.2057159, Final residual = 0.00099307601, No Iterations 3
+time step continuity errors : sum local = 3.6224891e-05, global = -1.2479913e-05, cumulative = -6.6556451
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0022192685, Final residual = 1.247695e-05, No Iterations 3
+bounding magU, min: 0 max: 14.585139 average: 4.147206
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 295.80951k, iteration i=0
+    max leaf temp tl=296.17965 K, iteration i=1
+    max leaf temp tl=296.17965 K, iteration i=2
+    max leaf temp tl=296.17965 K, iteration i=3
+    max leaf temp tl=296.17965 K, iteration i=4
+    max leaf temp tl=296.17965 K, iteration i=5
+    max leaf temp tl=296.17965 K, iteration i=6
+    max leaf temp tl=296.17965 K, iteration i=7
+    max leaf temp tl=296.17965 K, iteration i=8
+    max leaf temp tl=296.17965 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.024731056, Final relative residual = 8.3500186e-05, No Iterations 9
+temperature parameters: max Tl = 296.16471, min T = 293.24683, max T = 300.43482
+resistances: max rs = 5895.4195, max ra = 47.979483
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00062050143, Final residual = 4.7730656e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.030418899, Final residual = 0.00011445577, No Iterations 2
+
+Internal iteration number: 19
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0072374359, Final residual = 3.1714853e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.097836053, Final residual = 0.00043559757, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.21157953, Final residual = 0.00063292735, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.022594649, Final residual = 8.1183698e-05, No Iterations 2
+Min/max T:293.23594 300.41524
+GAMG:  Solving for p_rgh, Initial residual = 0.55918373, Final residual = 0.0040003843, No Iterations 3
+time step continuity errors : sum local = 4.4879275e-05, global = -1.0243042e-05, cumulative = -6.6556553
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0021529716, Final residual = 1.8948512e-05, No Iterations 3
+bounding magU, min: 0 max: 14.495743 average: 4.0701717
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 296.16471k, iteration i=0
+    max leaf temp tl=296.50701 K, iteration i=1
+    max leaf temp tl=296.50701 K, iteration i=2
+    max leaf temp tl=296.50701 K, iteration i=3
+    max leaf temp tl=296.50701 K, iteration i=4
+    max leaf temp tl=296.50701 K, iteration i=5
+    max leaf temp tl=296.50701 K, iteration i=6
+    max leaf temp tl=296.50701 K, iteration i=7
+    max leaf temp tl=296.50701 K, iteration i=8
+    max leaf temp tl=296.50701 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.025282391, Final relative residual = 8.526743e-05, No Iterations 9
+temperature parameters: max Tl = 296.4932, min T = 293.23594, max T = 300.41524
+resistances: max rs = 5943.7568, max ra = 54.537759
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00060321431, Final residual = 4.7312776e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.02856657, Final residual = 0.00015879987, No Iterations 2
+
+Internal iteration number: 20
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0052710099, Final residual = 2.4117103e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.08689388, Final residual = 0.00023284415, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.13399488, Final residual = 7.3726914e-05, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.019488699, Final residual = 7.0765793e-05, No Iterations 2
+Min/max T:293.26266 300.42157
+GAMG:  Solving for p_rgh, Initial residual = 0.2480037, Final residual = 0.0019426561, No Iterations 3
+time step continuity errors : sum local = 3.6058673e-05, global = 6.9109855e-06, cumulative = -6.6556484
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0019517327, Final residual = 1.0023788e-05, No Iterations 4
+bounding magU, min: 0 max: 14.16337 average: 4.0195275
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 296.4932k, iteration i=0
+    max leaf temp tl=296.85366 K, iteration i=1
+    max leaf temp tl=296.85366 K, iteration i=2
+    max leaf temp tl=296.85366 K, iteration i=3
+    max leaf temp tl=296.85366 K, iteration i=4
+    max leaf temp tl=296.85366 K, iteration i=5
+    max leaf temp tl=296.85366 K, iteration i=6
+    max leaf temp tl=296.85366 K, iteration i=7
+    max leaf temp tl=296.85366 K, iteration i=8
+    max leaf temp tl=296.85366 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.02731854, Final relative residual = 9.2026961e-05, No Iterations 9
+temperature parameters: max Tl = 296.83911, min T = 293.26266, max T = 300.42157
+resistances: max rs = 5994.2998, max ra = 61.570666
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00059545851, Final residual = 4.7961014e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.027226448, Final residual = 0.00026978002, No Iterations 1
+
+Internal iteration number: 21
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0037550064, Final residual = 2.4676105e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.068356789, Final residual = 0.00015368065, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.10253614, Final residual = 0.00064510766, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.017505043, Final residual = 6.4581141e-05, No Iterations 2
+Min/max T:293.30473 300.44162
+GAMG:  Solving for p_rgh, Initial residual = 0.31399245, Final residual = 0.00090124276, No Iterations 3
+time step continuity errors : sum local = 9.3843163e-06, global = 3.975247e-06, cumulative = -6.6556444
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0017624328, Final residual = 8.5602497e-06, No Iterations 4
+bounding magU, min: 0 max: 13.781612 average: 3.984571
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 296.83911k, iteration i=0
+    max leaf temp tl=297.21116 K, iteration i=1
+    max leaf temp tl=297.21116 K, iteration i=2
+    max leaf temp tl=297.21116 K, iteration i=3
+    max leaf temp tl=297.21116 K, iteration i=4
+    max leaf temp tl=297.21116 K, iteration i=5
+    max leaf temp tl=297.21116 K, iteration i=6
+    max leaf temp tl=297.21116 K, iteration i=7
+    max leaf temp tl=297.21116 K, iteration i=8
+    max leaf temp tl=297.21116 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.028611826, Final relative residual = 9.6267672e-05, No Iterations 9
+temperature parameters: max Tl = 297.19614, min T = 293.30473, max T = 300.44162
+resistances: max rs = 6045.7456, max ra = 66.659535
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00059361174, Final residual = 4.9118789e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.02617252, Final residual = 0.00025081817, No Iterations 1
+
+Internal iteration number: 22
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0029762825, Final residual = 2.4634235e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.048629247, Final residual = 0.00039317613, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.073674339, Final residual = 0.00068611342, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.016304645, Final residual = 6.3113745e-05, No Iterations 2
+Min/max T:293.34837 300.45132
+GAMG:  Solving for p_rgh, Initial residual = 0.1890254, Final residual = 0.0014069419, No Iterations 3
+time step continuity errors : sum local = 1.9804109e-05, global = 3.1680321e-06, cumulative = -6.6556412
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0016469018, Final residual = 7.4871966e-06, No Iterations 4
+bounding magU, min: 0 max: 13.523318 average: 3.947749
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 297.19614k, iteration i=0
+    max leaf temp tl=297.55842 K, iteration i=1
+    max leaf temp tl=297.55842 K, iteration i=2
+    max leaf temp tl=297.55842 K, iteration i=3
+    max leaf temp tl=297.55842 K, iteration i=4
+    max leaf temp tl=297.55842 K, iteration i=5
+    max leaf temp tl=297.55842 K, iteration i=6
+    max leaf temp tl=297.55842 K, iteration i=7
+    max leaf temp tl=297.55842 K, iteration i=8
+    max leaf temp tl=297.55842 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.028607802, Final relative residual = 9.6141801e-05, No Iterations 9
+temperature parameters: max Tl = 297.5438, min T = 293.34837, max T = 300.45132
+resistances: max rs = 6095.0732, max ra = 67.130747
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00059172186, Final residual = 4.9089551e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.025030652, Final residual = 0.00023208889, No Iterations 1
+
+Internal iteration number: 23
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0022227758, Final residual = 6.3608231e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.054127862, Final residual = 0.00052137949, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.052883679, Final residual = 0.00046262534, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.014895494, Final residual = 6.0725149e-05, No Iterations 2
+Min/max T:293.38865 300.4483
+GAMG:  Solving for p_rgh, Initial residual = 0.13387223, Final residual = 0.00061572862, No Iterations 3
+time step continuity errors : sum local = 9.1796964e-06, global = -2.7538546e-06, cumulative = -6.655644
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0016020695, Final residual = 1.0438355e-05, No Iterations 3
+bounding magU, min: 0 max: 13.39677 average: 3.9054014
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 297.5438k, iteration i=0
+    max leaf temp tl=297.89556 K, iteration i=1
+    max leaf temp tl=297.89457 K, iteration i=2
+    max leaf temp tl=297.89457 K, iteration i=3
+    max leaf temp tl=297.89457 K, iteration i=4
+    max leaf temp tl=297.89457 K, iteration i=5
+    max leaf temp tl=297.89457 K, iteration i=6
+    max leaf temp tl=297.89457 K, iteration i=7
+    max leaf temp tl=297.89457 K, iteration i=8
+    max leaf temp tl=297.89457 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.026698255, Final relative residual = 8.9623167e-05, No Iterations 9
+temperature parameters: max Tl = 297.87655, min T = 293.38865, max T = 300.4483
+resistances: max rs = 6140.8625, max ra = 66.850057
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00058150911, Final residual = 4.7868537e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.023669042, Final residual = 0.00021363378, No Iterations 1
+
+Internal iteration number: 24
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0018186603, Final residual = 1.6719388e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.052202866, Final residual = 0.00048262914, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.069410464, Final residual = 0.000117296, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.012648226, Final residual = 5.5070438e-05, No Iterations 2
+Min/max T:293.43221 300.44199
+GAMG:  Solving for p_rgh, Initial residual = 0.1327499, Final residual = 0.00040945813, No Iterations 3
+time step continuity errors : sum local = 4.1598089e-06, global = -1.3246085e-06, cumulative = -6.6556453
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0015819552, Final residual = 8.8315517e-06, No Iterations 4
+bounding magU, min: 0 max: 13.314461 average: 3.8656412
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 297.87655k, iteration i=0
+    max leaf temp tl=298.28412 K, iteration i=1
+    max leaf temp tl=298.28412 K, iteration i=2
+    max leaf temp tl=298.28412 K, iteration i=3
+    max leaf temp tl=298.28412 K, iteration i=4
+    max leaf temp tl=298.28412 K, iteration i=5
+    max leaf temp tl=298.28412 K, iteration i=6
+    max leaf temp tl=298.28412 K, iteration i=7
+    max leaf temp tl=298.28412 K, iteration i=8
+    max leaf temp tl=298.28412 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.025428684, Final relative residual = 8.5249876e-05, No Iterations 9
+temperature parameters: max Tl = 298.26768, min T = 293.43221, max T = 300.44199
+resistances: max rs = 6195.0444, max ra = 64.365436
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00056638486, Final residual = 4.6372384e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.022237636, Final residual = 0.0001963166, No Iterations 1
+
+Internal iteration number: 25
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0015796937, Final residual = 1.3066646e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.040358937, Final residual = 0.00033322086, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.055525521, Final residual = 0.00015345019, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.010707527, Final residual = 4.37206e-05, No Iterations 2
+Min/max T:293.49123 300.44196
+GAMG:  Solving for p_rgh, Initial residual = 0.17000329, Final residual = 0.00084846788, No Iterations 3
+time step continuity errors : sum local = 5.5349525e-06, global = -8.0924589e-07, cumulative = -6.6556461
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0015533344, Final residual = 7.4903624e-06, No Iterations 4
+bounding magU, min: 0 max: 13.214095 average: 3.8345921
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 298.26768k, iteration i=0
+    max leaf temp tl=298.64131 K, iteration i=1
+    max leaf temp tl=298.64131 K, iteration i=2
+    max leaf temp tl=298.64131 K, iteration i=3
+    max leaf temp tl=298.64131 K, iteration i=4
+    max leaf temp tl=298.64131 K, iteration i=5
+    max leaf temp tl=298.64131 K, iteration i=6
+    max leaf temp tl=298.64131 K, iteration i=7
+    max leaf temp tl=298.64131 K, iteration i=8
+    max leaf temp tl=298.64131 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.023360474, Final relative residual = 7.8222514e-05, No Iterations 9
+temperature parameters: max Tl = 298.62623, min T = 293.49123, max T = 300.44196
+resistances: max rs = 6244.1132, max ra = 63.731682
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00055065953, Final residual = 4.489464e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.020888514, Final residual = 0.00018053571, No Iterations 1
+
+Internal iteration number: 26
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0012488363, Final residual = 8.7322168e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.032733857, Final residual = 9.1447705e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.030392303, Final residual = 1.4841306e-05, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0088500827, Final residual = 3.6861451e-05, No Iterations 2
+Min/max T:293.56035 300.44833
+GAMG:  Solving for p_rgh, Initial residual = 0.13623081, Final residual = 0.00038984902, No Iterations 3
+time step continuity errors : sum local = 2.4849421e-06, global = 9.4338089e-07, cumulative = -6.6556452
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0015062747, Final residual = 6.5903995e-06, No Iterations 4
+bounding magU, min: 0 max: 13.094075 average: 3.8108205
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 298.62623k, iteration i=0
+    max leaf temp tl=298.95715 K, iteration i=1
+    max leaf temp tl=298.95715 K, iteration i=2
+    max leaf temp tl=298.95715 K, iteration i=3
+    max leaf temp tl=298.95715 K, iteration i=4
+    max leaf temp tl=298.95715 K, iteration i=5
+    max leaf temp tl=298.95715 K, iteration i=6
+    max leaf temp tl=298.95715 K, iteration i=7
+    max leaf temp tl=298.95715 K, iteration i=8
+    max leaf temp tl=298.95715 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.022066817, Final relative residual = 7.381264e-05, No Iterations 9
+temperature parameters: max Tl = 298.9438, min T = 293.56035, max T = 300.44833
+resistances: max rs = 6287.0323, max ra = 61.390139
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00053510398, Final residual = 4.3367287e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.019647226, Final residual = 0.00016609597, No Iterations 1
+
+Internal iteration number: 27
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.001090816, Final residual = 8.5741165e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.026480614, Final residual = 7.0344262e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.019702474, Final residual = 0.00016742119, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007139406, Final residual = 3.3864405e-05, No Iterations 2
+Min/max T:293.63572 300.45054
+GAMG:  Solving for p_rgh, Initial residual = 0.086781143, Final residual = 0.00040870575, No Iterations 3
+time step continuity errors : sum local = 3.0648086e-06, global = 7.7267444e-07, cumulative = -6.6556444
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0014574897, Final residual = 1.0032273e-05, No Iterations 3
+bounding magU, min: 0 max: 12.984293 average: 3.7893249
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 298.9438k, iteration i=0
+    max leaf temp tl=299.23138 K, iteration i=1
+    max leaf temp tl=299.23138 K, iteration i=2
+    max leaf temp tl=299.23138 K, iteration i=3
+    max leaf temp tl=299.23138 K, iteration i=4
+    max leaf temp tl=299.23138 K, iteration i=5
+    max leaf temp tl=299.23138 K, iteration i=6
+    max leaf temp tl=299.23138 K, iteration i=7
+    max leaf temp tl=299.23138 K, iteration i=8
+    max leaf temp tl=299.23138 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.021320227, Final relative residual = 7.1249969e-05, No Iterations 9
+temperature parameters: max Tl = 299.21978, min T = 293.63572, max T = 300.45054
+resistances: max rs = 6323.9547, max ra = 59.357793
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00051868527, Final residual = 4.1663876e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.018463561, Final residual = 0.00015288812, No Iterations 1
+
+Internal iteration number: 28
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0010239944, Final residual = 7.5935074e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.020846728, Final residual = 5.6407421e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.021700498, Final residual = 0.00012159305, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0058078388, Final residual = 3.1160748e-05, No Iterations 2
+Min/max T:293.70133 300.45216
+GAMG:  Solving for p_rgh, Initial residual = 0.06475155, Final residual = 0.0003231089, No Iterations 3
+time step continuity errors : sum local = 2.5448295e-06, global = -4.9439555e-07, cumulative = -6.6556449
+DILUPBiCGStab:  Solving for w, Initial residual = 0.001416793, Final residual = 8.4020613e-06, No Iterations 3
+bounding magU, min: 0 max: 12.899444 average: 3.7679955
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.21978k, iteration i=0
+    max leaf temp tl=299.4616 K, iteration i=1
+    max leaf temp tl=299.4616 K, iteration i=2
+    max leaf temp tl=299.4616 K, iteration i=3
+    max leaf temp tl=299.4616 K, iteration i=4
+    max leaf temp tl=299.4616 K, iteration i=5
+    max leaf temp tl=299.4616 K, iteration i=6
+    max leaf temp tl=299.4616 K, iteration i=7
+    max leaf temp tl=299.4616 K, iteration i=8
+    max leaf temp tl=299.4616 K, iteration i=9
+Vegetation model:  Solving for Tl, Final residual = 0.020919966, Final relative residual = 6.9858592e-05, No Iterations 9
+temperature parameters: max Tl = 299.45184, min T = 293.70133, max T = 300.45216
+resistances: max rs = 6354.7125, max ra = 56.299474
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00050186945, Final residual = 3.9844723e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.017314237, Final residual = 0.00014104388, No Iterations 1
+
+Internal iteration number: 29
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00092159785, Final residual = 2.2146613e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.019578467, Final residual = 0.00012503104, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.025301155, Final residual = 1.4129901e-05, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0046779188, Final residual = 2.8373981e-05, No Iterations 2
+Min/max T:293.79491 300.4524
+GAMG:  Solving for p_rgh, Initial residual = 0.056829785, Final residual = 0.00018499085, No Iterations 3
+time step continuity errors : sum local = 1.3759784e-06, global = -2.7921651e-07, cumulative = -6.6556452
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013892531, Final residual = 8.4275049e-06, No Iterations 3
+bounding magU, min: 0 max: 12.83474 average: 3.7480287
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.45184k, iteration i=0
+    max leaf temp tl=299.64843 K, iteration i=1
+    max leaf temp tl=299.64843 K, iteration i=2
+    max leaf temp tl=299.64843 K, iteration i=3
+    max leaf temp tl=299.64843 K, iteration i=4
+    max leaf temp tl=299.64843 K, iteration i=5
+    max leaf temp tl=299.64843 K, iteration i=6
+    max leaf temp tl=299.64843 K, iteration i=7
+    max leaf temp tl=299.64843 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.029327793, Final relative residual = 9.7874008e-05, No Iterations 8
+temperature parameters: max Tl = 299.6371, min T = 293.79491, max T = 300.4524
+resistances: max rs = 6379.5161, max ra = 58.378001
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0004850019, Final residual = 3.8138722e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.016209726, Final residual = 0.00013044174, No Iterations 1
+
+Internal iteration number: 30
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00081252427, Final residual = 3.627619e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.019831742, Final residual = 0.00011055749, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.023435633, Final residual = 1.0987806e-05, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0038361285, Final residual = 2.6011015e-05, No Iterations 2
+Min/max T:293.88255 300.45541
+GAMG:  Solving for p_rgh, Initial residual = 0.052975993, Final residual = 0.00023237779, No Iterations 3
+time step continuity errors : sum local = 1.6156448e-06, global = -2.7375046e-07, cumulative = -6.6556455
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013667164, Final residual = 8.4673081e-06, No Iterations 3
+bounding magU, min: 0 max: 12.780425 average: 3.7305493
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.6371k, iteration i=0
+    max leaf temp tl=299.79658 K, iteration i=1
+    max leaf temp tl=299.79658 K, iteration i=2
+    max leaf temp tl=299.79658 K, iteration i=3
+    max leaf temp tl=299.79658 K, iteration i=4
+    max leaf temp tl=299.79658 K, iteration i=5
+    max leaf temp tl=299.79658 K, iteration i=6
+    max leaf temp tl=299.79658 K, iteration i=7
+    max leaf temp tl=299.79658 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.029594211, Final relative residual = 9.8714305e-05, No Iterations 8
+temperature parameters: max Tl = 299.78738, min T = 293.88255, max T = 300.45541
+resistances: max rs = 6399.0843, max ra = 62.995191
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00046843885, Final residual = 3.6659518e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.015169095, Final residual = 0.00012118751, No Iterations 1
+
+Internal iteration number: 31
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00072207898, Final residual = 1.6667514e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.017198344, Final residual = 5.8791032e-06, No Iterations 3
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.019635922, Final residual = 0.00012459272, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0032681467, Final residual = 2.3885577e-05, No Iterations 2
+Min/max T:293.98836 300.45783
+GAMG:  Solving for p_rgh, Initial residual = 0.041831107, Final residual = 0.00015995397, No Iterations 3
+time step continuity errors : sum local = 1.1081523e-06, global = 3.5099023e-07, cumulative = -6.6556451
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013472417, Final residual = 8.3159152e-06, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.715467
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.78738k, iteration i=0
+    max leaf temp tl=299.91397 K, iteration i=1
+    max leaf temp tl=299.91397 K, iteration i=2
+    max leaf temp tl=299.91397 K, iteration i=3
+    max leaf temp tl=299.91397 K, iteration i=4
+    max leaf temp tl=299.91397 K, iteration i=5
+    max leaf temp tl=299.91397 K, iteration i=6
+    max leaf temp tl=299.91397 K, iteration i=7
+    max leaf temp tl=299.91397 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.02887915, Final relative residual = 9.6291447e-05, No Iterations 8
+temperature parameters: max Tl = 299.90626, min T = 293.98836, max T = 300.45783
+resistances: max rs = 6414.4647, max ra = 67.769708
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00045230835, Final residual = 3.5240108e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.014191813, Final residual = 0.00011326822, No Iterations 1
+
+Internal iteration number: 32
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00064951196, Final residual = 6.2299654e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.013958186, Final residual = 0.00010986939, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.017110007, Final residual = 3.647959e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0027606365, Final residual = 2.0998454e-05, No Iterations 2
+Min/max T:294.0671 300.46044
+GAMG:  Solving for p_rgh, Initial residual = 0.033664531, Final residual = 0.00012958009, No Iterations 3
+time step continuity errors : sum local = 9.19138e-07, global = 2.6479675e-07, cumulative = -6.6556448
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013268744, Final residual = 8.3254231e-06, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.7021163
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.90626k, iteration i=0
+    max leaf temp tl=299.99754 K, iteration i=1
+    max leaf temp tl=299.99754 K, iteration i=2
+    max leaf temp tl=299.99754 K, iteration i=3
+    max leaf temp tl=299.99754 K, iteration i=4
+    max leaf temp tl=299.99754 K, iteration i=5
+    max leaf temp tl=299.99754 K, iteration i=6
+    max leaf temp tl=299.99754 K, iteration i=7
+    max leaf temp tl=299.99754 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.028820004, Final relative residual = 9.6067469e-05, No Iterations 8
+temperature parameters: max Tl = 299.99227, min T = 294.0671, max T = 300.46044
+resistances: max rs = 6425.4249, max ra = 72.058394
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00043679929, Final residual = 3.3789769e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.013276958, Final residual = 0.00010615687, No Iterations 1
+
+Internal iteration number: 33
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00058387099, Final residual = 5.1990487e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.012273695, Final residual = 4.9453732e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.016172468, Final residual = 3.1217172e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.002500854, Final residual = 2.068338e-05, No Iterations 2
+Min/max T:294.17451 300.46398
+GAMG:  Solving for p_rgh, Initial residual = 0.027971508, Final residual = 0.00013424184, No Iterations 3
+time step continuity errors : sum local = 9.6146158e-07, global = 2.0583839e-07, cumulative = -6.6556446
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013095269, Final residual = 8.4700451e-06, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.6901937
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 299.99227k, iteration i=0
+    max leaf temp tl=300.06622 K, iteration i=1
+    max leaf temp tl=300.06622 K, iteration i=2
+    max leaf temp tl=300.06622 K, iteration i=3
+    max leaf temp tl=300.06622 K, iteration i=4
+    max leaf temp tl=300.06622 K, iteration i=5
+    max leaf temp tl=300.06622 K, iteration i=6
+    max leaf temp tl=300.06622 K, iteration i=7
+    max leaf temp tl=300.06622 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.029270758, Final relative residual = 9.7547662e-05, No Iterations 8
+temperature parameters: max Tl = 300.06195, min T = 294.17451, max T = 300.46398
+resistances: max rs = 6434.4117, max ra = 75.231721
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00042155494, Final residual = 3.2268161e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.012415982, Final residual = 9.967053e-05, No Iterations 1
+
+Internal iteration number: 34
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0005185723, Final residual = 4.4817682e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.011942283, Final residual = 8.0596946e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.015286018, Final residual = 3.1676861e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0022364943, Final residual = 9.049057e-06, No Iterations 3
+Min/max T:294.26105 300.46746
+GAMG:  Solving for p_rgh, Initial residual = 0.023933417, Final residual = 0.00013344422, No Iterations 3
+time step continuity errors : sum local = 9.4685817e-07, global = 4.9082875e-10, cumulative = -6.6556446
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012956212, Final residual = 9.0792997e-06, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.6797176
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.06195k, iteration i=0
+    max leaf temp tl=300.11546 K, iteration i=1
+    max leaf temp tl=300.11546 K, iteration i=2
+    max leaf temp tl=300.11546 K, iteration i=3
+    max leaf temp tl=300.11546 K, iteration i=4
+    max leaf temp tl=300.11546 K, iteration i=5
+    max leaf temp tl=300.11546 K, iteration i=6
+    max leaf temp tl=300.11546 K, iteration i=7
+    max leaf temp tl=300.11546 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.027834934, Final relative residual = 9.2747417e-05, No Iterations 8
+temperature parameters: max Tl = 300.11238, min T = 294.26105, max T = 300.46746
+resistances: max rs = 6440.8406, max ra = 77.033853
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00040655338, Final residual = 3.075222e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.011609783, Final residual = 9.3681834e-05, No Iterations 1
+
+Internal iteration number: 35
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00045928291, Final residual = 4.2229387e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.011326247, Final residual = 7.8983805e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.014030657, Final residual = 2.5495869e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0019672555, Final residual = 1.5636358e-05, No Iterations 3
+Min/max T:294.32006 300.46937
+GAMG:  Solving for p_rgh, Initial residual = 0.021482451, Final residual = 0.00012097091, No Iterations 3
+time step continuity errors : sum local = 8.5244573e-07, global = 1.0553717e-07, cumulative = -6.6556445
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012870036, Final residual = 9.7760455e-06, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.6708044
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.11238k, iteration i=0
+    max leaf temp tl=300.14716 K, iteration i=1
+    max leaf temp tl=300.14716 K, iteration i=2
+    max leaf temp tl=300.14716 K, iteration i=3
+    max leaf temp tl=300.14716 K, iteration i=4
+    max leaf temp tl=300.14716 K, iteration i=5
+    max leaf temp tl=300.14716 K, iteration i=6
+    max leaf temp tl=300.14716 K, iteration i=7
+    max leaf temp tl=300.14716 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.026916406, Final relative residual = 8.9677364e-05, No Iterations 8
+temperature parameters: max Tl = 300.14515, min T = 294.32006, max T = 300.46937
+resistances: max rs = 6444.9674, max ra = 78.438364
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00039180662, Final residual = 2.925637e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.010854546, Final residual = 8.807324e-05, No Iterations 1
+
+Internal iteration number: 36
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00040818376, Final residual = 3.6537757e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.010267595, Final residual = 6.764598e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.012946483, Final residual = 2.4226608e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0018211815, Final residual = 9.1979889e-06, No Iterations 3
+Min/max T:294.43753 300.47094
+GAMG:  Solving for p_rgh, Initial residual = 0.018135068, Final residual = 0.00010637235, No Iterations 3
+time step continuity errors : sum local = 7.5167297e-07, global = 1.8233311e-07, cumulative = -6.6556444
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012808273, Final residual = 1.1044689e-05, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.6634797
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.14515k, iteration i=0
+    max leaf temp tl=300.17476 K, iteration i=1
+    max leaf temp tl=300.17476 K, iteration i=2
+    max leaf temp tl=300.17476 K, iteration i=3
+    max leaf temp tl=300.17476 K, iteration i=4
+    max leaf temp tl=300.17476 K, iteration i=5
+    max leaf temp tl=300.17476 K, iteration i=6
+    max leaf temp tl=300.17476 K, iteration i=7
+    max leaf temp tl=300.17476 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.026651025, Final relative residual = 8.8785028e-05, No Iterations 8
+temperature parameters: max Tl = 300.17305, min T = 294.43753, max T = 300.47094
+resistances: max rs = 6448.5574, max ra = 78.693063
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00037712415, Final residual = 2.7764044e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.010149491, Final residual = 8.2818444e-05, No Iterations 1
+
+Internal iteration number: 37
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00036656318, Final residual = 3.365003e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0093726778, Final residual = 2.0650019e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.012341695, Final residual = 2.2461374e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0016570478, Final residual = 8.9186909e-07, No Iterations 4
+Min/max T:294.48774 300.4717
+GAMG:  Solving for p_rgh, Initial residual = 0.017280998, Final residual = 9.4285234e-05, No Iterations 3
+time step continuity errors : sum local = 6.7089785e-07, global = 1.5716947e-07, cumulative = -6.6556442
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012770805, Final residual = 1.2324508e-05, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.6576778
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.17305k, iteration i=0
+    max leaf temp tl=300.18565 K, iteration i=1
+    max leaf temp tl=300.18565 K, iteration i=2
+    max leaf temp tl=300.18565 K, iteration i=3
+    max leaf temp tl=300.18565 K, iteration i=4
+    max leaf temp tl=300.18565 K, iteration i=5
+    max leaf temp tl=300.18565 K, iteration i=6
+    max leaf temp tl=300.18565 K, iteration i=7
+    max leaf temp tl=300.18565 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.026864429, Final relative residual = 8.9492717e-05, No Iterations 8
+temperature parameters: max Tl = 300.18492, min T = 294.48774, max T = 300.4717
+resistances: max rs = 6449.9627, max ra = 77.855043
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00036251505, Final residual = 2.6285552e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0094898395, Final residual = 7.7875099e-05, No Iterations 1
+
+Internal iteration number: 38
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00033045052, Final residual = 3.0934513e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.008765229, Final residual = 3.4200744e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.011715281, Final residual = 2.2725808e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0015975952, Final residual = 5.4419796e-06, No Iterations 3
+Min/max T:294.68035 300.47221
+GAMG:  Solving for p_rgh, Initial residual = 0.015849247, Final residual = 9.0407354e-05, No Iterations 3
+time step continuity errors : sum local = 6.4572873e-07, global = 1.4766149e-07, cumulative = -6.655644
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012759585, Final residual = 3.6707868e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6533328
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.18492k, iteration i=0
+    max leaf temp tl=300.19521 K, iteration i=1
+    max leaf temp tl=300.19521 K, iteration i=2
+    max leaf temp tl=300.19521 K, iteration i=3
+    max leaf temp tl=300.19521 K, iteration i=4
+    max leaf temp tl=300.19521 K, iteration i=5
+    max leaf temp tl=300.19521 K, iteration i=6
+    max leaf temp tl=300.19521 K, iteration i=7
+    max leaf temp tl=300.19521 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.026587065, Final relative residual = 8.8565922e-05, No Iterations 8
+temperature parameters: max Tl = 300.19461, min T = 294.68035, max T = 300.47221
+resistances: max rs = 6451.1948, max ra = 76.942457
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00034810375, Final residual = 2.4828727e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0088746568, Final residual = 7.3223126e-05, No Iterations 1
+
+Internal iteration number: 39
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00029744107, Final residual = 2.5053974e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0080712349, Final residual = 3.590805e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.011186852, Final residual = 2.1208641e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0015362025, Final residual = 6.6641242e-06, No Iterations 3
+Min/max T:294.70145 300.47343
+GAMG:  Solving for p_rgh, Initial residual = 0.015466316, Final residual = 8.7694294e-05, No Iterations 3
+time step continuity errors : sum local = 6.2652513e-07, global = 9.7295605e-08, cumulative = -6.6556439
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012766614, Final residual = 3.9407827e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6504584
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.19461k, iteration i=0
+    max leaf temp tl=300.20241 K, iteration i=1
+    max leaf temp tl=300.20241 K, iteration i=2
+    max leaf temp tl=300.20241 K, iteration i=3
+    max leaf temp tl=300.20241 K, iteration i=4
+    max leaf temp tl=300.20241 K, iteration i=5
+    max leaf temp tl=300.20241 K, iteration i=6
+    max leaf temp tl=300.20241 K, iteration i=7
+    max leaf temp tl=300.20241 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.027390851, Final relative residual = 9.1241278e-05, No Iterations 8
+temperature parameters: max Tl = 300.20196, min T = 294.70145, max T = 300.47343
+resistances: max rs = 6452.1195, max ra = 77.503091
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00033392632, Final residual = 2.3424387e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0083008011, Final residual = 6.882362e-05, No Iterations 1
+
+Internal iteration number: 40
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0002670605, Final residual = 2.2570562e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0074771834, Final residual = 6.0873984e-06, No Iterations 3
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.010666155, Final residual = 2.0107953e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0014575423, Final residual = 4.4651066e-06, No Iterations 3
+Min/max T:294.91206 300.47416
+GAMG:  Solving for p_rgh, Initial residual = 0.013934873, Final residual = 7.8265494e-05, No Iterations 3
+time step continuity errors : sum local = 5.595372e-07, global = 9.6077619e-08, cumulative = -6.6556439
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012795278, Final residual = 4.2676014e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6491083
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.20196k, iteration i=0
+    max leaf temp tl=300.20869 K, iteration i=1
+    max leaf temp tl=300.20869 K, iteration i=2
+    max leaf temp tl=300.20869 K, iteration i=3
+    max leaf temp tl=300.20869 K, iteration i=4
+    max leaf temp tl=300.20869 K, iteration i=5
+    max leaf temp tl=300.20869 K, iteration i=6
+    max leaf temp tl=300.20869 K, iteration i=7
+    max leaf temp tl=300.20869 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.025021028, Final relative residual = 8.3345451e-05, No Iterations 8
+temperature parameters: max Tl = 300.2083, min T = 294.91206, max T = 300.47416
+resistances: max rs = 6452.925, max ra = 77.093223
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00032005591, Final residual = 2.2083525e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0077664322, Final residual = 6.4653717e-05, No Iterations 1
+
+Internal iteration number: 41
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00024121893, Final residual = 1.937584e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0068767443, Final residual = 5.09453e-06, No Iterations 3
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.010262727, Final residual = 0.00010131079, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013883442, Final residual = 7.5628029e-07, No Iterations 4
+Min/max T:294.97163 300.47541
+GAMG:  Solving for p_rgh, Initial residual = 0.012512092, Final residual = 6.9274189e-05, No Iterations 3
+time step continuity errors : sum local = 4.9652432e-07, global = 1.0235201e-07, cumulative = -6.6556438
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012856518, Final residual = 4.4419342e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6492485
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.2083k, iteration i=0
+    max leaf temp tl=300.21468 K, iteration i=1
+    max leaf temp tl=300.21468 K, iteration i=2
+    max leaf temp tl=300.21468 K, iteration i=3
+    max leaf temp tl=300.21468 K, iteration i=4
+    max leaf temp tl=300.21468 K, iteration i=5
+    max leaf temp tl=300.21468 K, iteration i=6
+    max leaf temp tl=300.21468 K, iteration i=7
+    max leaf temp tl=300.21468 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.024151163, Final relative residual = 8.044631e-05, No Iterations 8
+temperature parameters: max Tl = 300.21431, min T = 294.97163, max T = 300.47541
+resistances: max rs = 6453.6927, max ra = 75.933302
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00030651943, Final residual = 2.0828351e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0072678968, Final residual = 6.0669899e-05, No Iterations 1
+
+Internal iteration number: 42
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00021842903, Final residual = 1.8997924e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0063976015, Final residual = 4.2459886e-06, No Iterations 3
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0098545039, Final residual = 1.936363e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.001368787, Final residual = 1.3186143e-05, No Iterations 2
+Min/max T:295.13477 300.47619
+GAMG:  Solving for p_rgh, Initial residual = 0.011998981, Final residual = 6.3476769e-05, No Iterations 3
+time step continuity errors : sum local = 4.5608828e-07, global = 1.0103723e-07, cumulative = -6.6556436
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012944771, Final residual = 4.6753996e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6507708
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.21431k, iteration i=0
+    max leaf temp tl=300.21915 K, iteration i=1
+    max leaf temp tl=300.21915 K, iteration i=2
+    max leaf temp tl=300.21915 K, iteration i=3
+    max leaf temp tl=300.21915 K, iteration i=4
+    max leaf temp tl=300.21915 K, iteration i=5
+    max leaf temp tl=300.21915 K, iteration i=6
+    max leaf temp tl=300.21915 K, iteration i=7
+    max leaf temp tl=300.21915 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.022983958, Final relative residual = 7.6557266e-05, No Iterations 8
+temperature parameters: max Tl = 300.21887, min T = 295.13477, max T = 300.47619
+resistances: max rs = 6454.2628, max ra = 74.257116
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00029343015, Final residual = 1.9683904e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0068034322, Final residual = 5.687942e-05, No Iterations 1
+
+Internal iteration number: 43
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00019808127, Final residual = 1.7235677e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.005944354, Final residual = 4.2793164e-06, No Iterations 3
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0094469026, Final residual = 1.892491e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013631268, Final residual = 5.9213847e-06, No Iterations 3
+Min/max T:295.24396 300.47719
+GAMG:  Solving for p_rgh, Initial residual = 0.011219081, Final residual = 5.9739e-05, No Iterations 3
+time step continuity errors : sum local = 4.2999166e-07, global = 8.2246705e-08, cumulative = -6.6556436
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013057816, Final residual = 4.8440607e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6535137
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.21887k, iteration i=0
+    max leaf temp tl=300.22899 K, iteration i=1
+    max leaf temp tl=300.22768 K, iteration i=2
+    max leaf temp tl=300.2268 K, iteration i=3
+    max leaf temp tl=300.22621 K, iteration i=4
+    max leaf temp tl=300.22581 K, iteration i=5
+    max leaf temp tl=300.22554 K, iteration i=6
+    max leaf temp tl=300.22536 K, iteration i=7
+    max leaf temp tl=300.22524 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.021865582, Final relative residual = 7.2830595e-05, No Iterations 8
+temperature parameters: max Tl = 300.22374, min T = 295.24396, max T = 300.47719
+resistances: max rs = 6454.8874, max ra = 72.365185
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00028084622, Final residual = 1.8682947e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0063708001, Final residual = 5.327989e-05, No Iterations 1
+
+Internal iteration number: 44
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00017959763, Final residual = 1.5373957e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.005575849, Final residual = 4.1452081e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0090589471, Final residual = 1.9859892e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013285105, Final residual = 1.234432e-05, No Iterations 2
+Min/max T:295.37935 300.47793
+GAMG:  Solving for p_rgh, Initial residual = 0.010306606, Final residual = 5.5649638e-05, No Iterations 3
+time step continuity errors : sum local = 4.0090036e-07, global = 6.2632195e-08, cumulative = -6.6556435
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013205763, Final residual = 5.003363e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6573547
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.22374k, iteration i=0
+    max leaf temp tl=300.27459 K, iteration i=1
+    max leaf temp tl=300.27296 K, iteration i=2
+    max leaf temp tl=300.27187 K, iteration i=3
+    max leaf temp tl=300.27114 K, iteration i=4
+    max leaf temp tl=300.27066 K, iteration i=5
+    max leaf temp tl=300.27033 K, iteration i=6
+    max leaf temp tl=300.27011 K, iteration i=7
+    max leaf temp tl=300.26997 K, iteration i=8
+Vegetation model:  Solving for Tl, Final residual = 0.022195052, Final relative residual = 7.3916991e-05, No Iterations 8
+temperature parameters: max Tl = 300.26775, min T = 295.37935, max T = 300.47793
+resistances: max rs = 6455.3948, max ra = 73.340876
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00026879083, Final residual = 1.7871387e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0059680831, Final residual = 4.9877129e-05, No Iterations 1
+
+Internal iteration number: 45
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00016301522, Final residual = 1.3233683e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0051857333, Final residual = 2.4916264e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0086356913, Final residual = 1.665495e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013019275, Final residual = 3.9441698e-06, No Iterations 3
+Min/max T:295.51243 300.47868
+GAMG:  Solving for p_rgh, Initial residual = 0.0095372738, Final residual = 5.1201571e-05, No Iterations 3
+time step continuity errors : sum local = 3.6925038e-07, global = 5.8692387e-08, cumulative = -6.6556434
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013393222, Final residual = 5.1070758e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6621955
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.26775k, iteration i=0
+    max leaf temp tl=300.32275 K, iteration i=1
+    max leaf temp tl=300.32097 K, iteration i=2
+    max leaf temp tl=300.31978 K, iteration i=3
+    max leaf temp tl=300.31898 K, iteration i=4
+    max leaf temp tl=300.31845 K, iteration i=5
+    max leaf temp tl=300.3181 K, iteration i=6
+    max leaf temp tl=300.31786 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.02918388, Final relative residual = 9.7176636e-05, No Iterations 7
+temperature parameters: max Tl = 300.31445, min T = 295.51243, max T = 300.47868
+resistances: max rs = 6455.965, max ra = 77.057793
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00025732055, Final residual = 1.7163422e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0055934854, Final residual = 4.6649954e-05, No Iterations 1
+
+Internal iteration number: 46
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00014834372, Final residual = 1.2398726e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.004823796, Final residual = 2.2950454e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0080790127, Final residual = 2.2660767e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013174634, Final residual = 1.3144226e-05, No Iterations 2
+Min/max T:295.6659 300.47932
+GAMG:  Solving for p_rgh, Initial residual = 0.0093454794, Final residual = 4.6605703e-05, No Iterations 3
+time step continuity errors : sum local = 3.366628e-07, global = 6.5714473e-08, cumulative = -6.6556434
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013622742, Final residual = 5.2518359e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6679489
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.31445k, iteration i=0
+    max leaf temp tl=300.3676 K, iteration i=1
+    max leaf temp tl=300.36579 K, iteration i=2
+    max leaf temp tl=300.36459 K, iteration i=3
+    max leaf temp tl=300.36379 K, iteration i=4
+    max leaf temp tl=300.36325 K, iteration i=5
+    max leaf temp tl=300.3629 K, iteration i=6
+    max leaf temp tl=300.36266 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.027153946, Final relative residual = 9.0403866e-05, No Iterations 7
+temperature parameters: max Tl = 300.35942, min T = 295.6659, max T = 300.47932
+resistances: max rs = 6456.4288, max ra = 81.065545
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00024642528, Final residual = 1.6517754e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.005244831, Final residual = 4.3617774e-05, No Iterations 1
+
+Internal iteration number: 47
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00013518778, Final residual = 1.1621886e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0044864954, Final residual = 2.5171864e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0074426074, Final residual = 2.0804354e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0012978284, Final residual = 7.0112948e-07, No Iterations 4
+Min/max T:295.84047 300.47987
+GAMG:  Solving for p_rgh, Initial residual = 0.0085839199, Final residual = 4.1863976e-05, No Iterations 3
+time step continuity errors : sum local = 3.0307297e-07, global = 5.9928942e-08, cumulative = -6.6556433
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0013903573, Final residual = 5.3941906e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6745039
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.35942k, iteration i=0
+    max leaf temp tl=300.41595 K, iteration i=1
+    max leaf temp tl=300.41393 K, iteration i=2
+    max leaf temp tl=300.41258 K, iteration i=3
+    max leaf temp tl=300.41169 K, iteration i=4
+    max leaf temp tl=300.4111 K, iteration i=5
+    max leaf temp tl=300.4107 K, iteration i=6
+    max leaf temp tl=300.41044 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.027650087, Final relative residual = 9.2041031e-05, No Iterations 7
+temperature parameters: max Tl = 300.40704, min T = 295.84047, max T = 300.47987
+resistances: max rs = 6456.987, max ra = 85.342995
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00023609022, Final residual = 1.5907845e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0049206222, Final residual = 4.0775359e-05, No Iterations 1
+
+Internal iteration number: 48
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00012358634, Final residual = 1.0945933e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0042223258, Final residual = 2.1896833e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0067136274, Final residual = 2.8011445e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0012979177, Final residual = 4.811717e-06, No Iterations 3
+Min/max T:296.02778 300.48037
+GAMG:  Solving for p_rgh, Initial residual = 0.0076888619, Final residual = 3.9370965e-05, No Iterations 3
+time step continuity errors : sum local = 2.8552386e-07, global = 5.3946003e-08, cumulative = -6.6556433
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0014248718, Final residual = 5.5664327e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6817549
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.40704k, iteration i=0
+    max leaf temp tl=300.46097 K, iteration i=1
+    max leaf temp tl=300.45895 K, iteration i=2
+    max leaf temp tl=300.4576 K, iteration i=3
+    max leaf temp tl=300.45671 K, iteration i=4
+    max leaf temp tl=300.45612 K, iteration i=5
+    max leaf temp tl=300.45573 K, iteration i=6
+    max leaf temp tl=300.45547 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.02477734, Final relative residual = 8.246593e-05, No Iterations 7
+temperature parameters: max Tl = 300.45229, min T = 296.02778, max T = 300.48037
+resistances: max rs = 6457.4439, max ra = 89.840936
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00022631711, Final residual = 1.5331638e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0046190014, Final residual = 3.8108035e-05, No Iterations 1
+
+Internal iteration number: 49
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00011304272, Final residual = 8.9452967e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0039257356, Final residual = 1.846585e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0060304546, Final residual = 2.61002e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013809328, Final residual = 3.8280282e-06, No Iterations 3
+Min/max T:296.23786 300.48078
+GAMG:  Solving for p_rgh, Initial residual = 0.0073365993, Final residual = 3.6285053e-05, No Iterations 3
+time step continuity errors : sum local = 2.6355767e-07, global = 4.439534e-08, cumulative = -6.6556432
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0014672197, Final residual = 5.7357469e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6896086
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.45229k, iteration i=0
+    max leaf temp tl=300.5049 K, iteration i=1
+    max leaf temp tl=300.50282 K, iteration i=2
+    max leaf temp tl=300.50145 K, iteration i=3
+    max leaf temp tl=300.50055 K, iteration i=4
+    max leaf temp tl=300.49995 K, iteration i=5
+    max leaf temp tl=300.49955 K, iteration i=6
+    max leaf temp tl=300.49929 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.023387422, Final relative residual = 7.7828542e-05, No Iterations 7
+temperature parameters: max Tl = 300.49623, min T = 296.23786, max T = 300.48078
+resistances: max rs = 6457.8995, max ra = 94.463194
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00021710277, Final residual = 1.4799114e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0043380294, Final residual = 3.5599804e-05, No Iterations 1
+
+Internal iteration number: 50
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.00010340691, Final residual = 8.5477685e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0036633205, Final residual = 1.5846964e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0054166644, Final residual = 3.8795168e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0013824312, Final residual = 1.3051952e-05, No Iterations 2
+Min/max T:296.41476 300.48118
+GAMG:  Solving for p_rgh, Initial residual = 0.0068974932, Final residual = 3.3851555e-05, No Iterations 3
+time step continuity errors : sum local = 2.4623981e-07, global = 4.0701137e-08, cumulative = -6.6556432
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0015193862, Final residual = 5.9777154e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.6980073
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.49623k, iteration i=0
+    max leaf temp tl=300.55236 K, iteration i=1
+    max leaf temp tl=300.55005 K, iteration i=2
+    max leaf temp tl=300.54852 K, iteration i=3
+    max leaf temp tl=300.54751 K, iteration i=4
+    max leaf temp tl=300.54685 K, iteration i=5
+    max leaf temp tl=300.54641 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.029331155, Final relative residual = 9.7592763e-05, No Iterations 6
+temperature parameters: max Tl = 300.54154, min T = 296.41476, max T = 300.48118
+resistances: max rs = 6458.2767, max ra = 99.09262
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00020837624, Final residual = 1.4258448e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0040766213, Final residual = 3.326897e-05, No Iterations 1
+
+Internal iteration number: 51
+DILUPBiCGStab:  Solving for Ux, Initial residual = 9.4732448e-05, Final residual = 8.1178113e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0034266933, Final residual = 1.5076728e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0048401118, Final residual = 2.3802448e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0014430516, Final residual = 4.9925859e-06, No Iterations 3
+Min/max T:296.64217 300.48148
+GAMG:  Solving for p_rgh, Initial residual = 0.0063577576, Final residual = 3.0816861e-05, No Iterations 3
+time step continuity errors : sum local = 2.245752e-07, global = 4.0722718e-08, cumulative = -6.6556431
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0015846966, Final residual = 6.2923688e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7068757
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.54154k, iteration i=0
+    max leaf temp tl=300.58859 K, iteration i=1
+    max leaf temp tl=300.58656 K, iteration i=2
+    max leaf temp tl=300.58523 K, iteration i=3
+    max leaf temp tl=300.58436 K, iteration i=4
+    max leaf temp tl=300.58378 K, iteration i=5
+    max leaf temp tl=300.5834 K, iteration i=6
+    max leaf temp tl=300.58316 K, iteration i=7
+Vegetation model:  Solving for Tl, Final residual = 0.021363944, Final relative residual = 7.1074987e-05, No Iterations 7
+temperature parameters: max Tl = 300.58051, min T = 296.64217, max T = 300.48148
+resistances: max rs = 6458.6813, max ra = 103.54269
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0002001018, Final residual = 1.3730945e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0038336553, Final residual = 3.1080529e-05, No Iterations 1
+
+Internal iteration number: 52
+DILUPBiCGStab:  Solving for Ux, Initial residual = 8.7064866e-05, Final residual = 7.9679529e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0032159891, Final residual = 2.0050105e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0043319634, Final residual = 2.2044758e-06, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0014843256, Final residual = 5.7558259e-06, No Iterations 3
+Min/max T:296.82343 300.48179
+GAMG:  Solving for p_rgh, Initial residual = 0.0058800794, Final residual = 2.9018848e-05, No Iterations 3
+time step continuity errors : sum local = 2.118237e-07, global = 3.8952583e-08, cumulative = -6.6556431
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0016675871, Final residual = 6.3889391e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7161282
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.58051k, iteration i=0
+    max leaf temp tl=300.62312 K, iteration i=1
+    max leaf temp tl=300.62122 K, iteration i=2
+    max leaf temp tl=300.61997 K, iteration i=3
+    max leaf temp tl=300.61915 K, iteration i=4
+    max leaf temp tl=300.61861 K, iteration i=5
+    max leaf temp tl=300.61826 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.027139404, Final relative residual = 9.0278629e-05, No Iterations 6
+temperature parameters: max Tl = 300.61466, min T = 296.82343, max T = 300.48179
+resistances: max rs = 6459.0396, max ra = 107.59983
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00019226163, Final residual = 1.3203709e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0036064161, Final residual = 2.9034775e-05, No Iterations 1
+
+Internal iteration number: 53
+DILUPBiCGStab:  Solving for Ux, Initial residual = 8.0074807e-05, Final residual = 6.9354034e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0030028925, Final residual = 1.538163e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0038895435, Final residual = 3.5577397e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0016486417, Final residual = 5.1117393e-06, No Iterations 3
+Min/max T:297.06792 300.482
+GAMG:  Solving for p_rgh, Initial residual = 0.0055449415, Final residual = 2.5823858e-05, No Iterations 3
+time step continuity errors : sum local = 1.8885752e-07, global = 3.5089826e-08, cumulative = -6.6556431
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0017744902, Final residual = 6.641426e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7256654
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.61466k, iteration i=0
+    max leaf temp tl=300.65278 K, iteration i=1
+    max leaf temp tl=300.65102 K, iteration i=2
+    max leaf temp tl=300.64987 K, iteration i=3
+    max leaf temp tl=300.64912 K, iteration i=4
+    max leaf temp tl=300.64863 K, iteration i=5
+    max leaf temp tl=300.64831 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.025921206, Final relative residual = 8.6217702e-05, No Iterations 6
+temperature parameters: max Tl = 300.64512, min T = 297.06792, max T = 300.482
+resistances: max rs = 6459.3722, max ra = 111.65649
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00018481197, Final residual = 1.2708106e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0033952863, Final residual = 2.7135708e-05, No Iterations 1
+
+Internal iteration number: 54
+DILUPBiCGStab:  Solving for Ux, Initial residual = 7.3794765e-05, Final residual = 6.378239e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0028138783, Final residual = 1.238733e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0034872424, Final residual = 1.7413115e-06, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0017107479, Final residual = 6.8434038e-06, No Iterations 3
+Min/max T:297.22588 300.48225
+GAMG:  Solving for p_rgh, Initial residual = 0.0051361158, Final residual = 2.4578289e-05, No Iterations 3
+time step continuity errors : sum local = 1.8001773e-07, global = 3.2364312e-08, cumulative = -6.655643
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0019158186, Final residual = 7.1054732e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.735418
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.64512k, iteration i=0
+    max leaf temp tl=300.67679 K, iteration i=1
+    max leaf temp tl=300.6753 K, iteration i=2
+    max leaf temp tl=300.67432 K, iteration i=3
+    max leaf temp tl=300.67369 K, iteration i=4
+    max leaf temp tl=300.67327 K, iteration i=5
+    max leaf temp tl=300.673 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.023777473, Final relative residual = 7.9080839e-05, No Iterations 6
+temperature parameters: max Tl = 300.67037, min T = 297.22588, max T = 300.48225
+resistances: max rs = 6459.6692, max ra = 118.31198
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00017773604, Final residual = 1.2208139e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0031992232, Final residual = 2.5384914e-05, No Iterations 1
+
+Internal iteration number: 55
+DILUPBiCGStab:  Solving for Ux, Initial residual = 6.8075041e-05, Final residual = 5.7924449e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0026334513, Final residual = 1.3630332e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0031444513, Final residual = 1.8639258e-05, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0018844132, Final residual = 5.7585518e-06, No Iterations 3
+Min/max T:297.47141 300.4824
+GAMG:  Solving for p_rgh, Initial residual = 0.0046717884, Final residual = 2.2177946e-05, No Iterations 3
+time step continuity errors : sum local = 1.6271194e-07, global = 3.0645027e-08, cumulative = -6.655643
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0021088052, Final residual = 7.7297148e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7453239
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.67037k, iteration i=0
+    max leaf temp tl=300.69552 K, iteration i=1
+    max leaf temp tl=300.69431 K, iteration i=2
+    max leaf temp tl=300.69352 K, iteration i=3
+    max leaf temp tl=300.69301 K, iteration i=4
+    max leaf temp tl=300.69268 K, iteration i=5
+    max leaf temp tl=300.69246 K, iteration i=6
+Vegetation model:  Solving for Tl, Final residual = 0.021831484, Final relative residual = 7.2604028e-05, No Iterations 6
+temperature parameters: max Tl = 300.69038, min T = 297.47141, max T = 300.4824
+resistances: max rs = 6459.9388, max ra = 124.60504
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00017100852, Final residual = 1.1735532e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0030171562, Final residual = 2.3756302e-05, No Iterations 1
+
+Internal iteration number: 56
+DILUPBiCGStab:  Solving for Ux, Initial residual = 6.3155651e-05, Final residual = 5.3449353e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0024796976, Final residual = 1.9487758e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0028400589, Final residual = 1.1704961e-06, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0020960624, Final residual = 5.885733e-06, No Iterations 3
+Min/max T:297.65172 300.4826
+GAMG:  Solving for p_rgh, Initial residual = 0.0042565695, Final residual = 2.1182838e-05, No Iterations 3
+time step continuity errors : sum local = 1.5563723e-07, global = 3.0105842e-08, cumulative = -6.655643
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0023838942, Final residual = 8.6706639e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7553277
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.69038k, iteration i=0
+    max leaf temp tl=300.70914 K, iteration i=1
+    max leaf temp tl=300.70824 K, iteration i=2
+    max leaf temp tl=300.70764 K, iteration i=3
+    max leaf temp tl=300.70726 K, iteration i=4
+    max leaf temp tl=300.70701 K, iteration i=5
+Vegetation model:  Solving for Tl, Final residual = 0.028593988, Final relative residual = 9.5089197e-05, No Iterations 5
+temperature parameters: max Tl = 300.70464, min T = 297.65172, max T = 300.4826
+resistances: max rs = 6460.1788, max ra = 130.0292
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00016461941, Final residual = 1.1278164e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0028479139, Final residual = 2.2248275e-05, No Iterations 1
+
+Internal iteration number: 57
+DILUPBiCGStab:  Solving for Ux, Initial residual = 5.8559939e-05, Final residual = 4.8181793e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0023287601, Final residual = 1.422945e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0025923304, Final residual = 1.0714657e-06, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0022571462, Final residual = 1.0648657e-05, No Iterations 3
+Min/max T:297.9 300.48272
+GAMG:  Solving for p_rgh, Initial residual = 0.0039818758, Final residual = 1.9528986e-05, No Iterations 3
+time step continuity errors : sum local = 1.4371917e-07, global = 2.8337471e-08, cumulative = -6.6556429
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0028014169, Final residual = 1.0089254e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7653596
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.70464k, iteration i=0
+    max leaf temp tl=300.71855 K, iteration i=1
+    max leaf temp tl=300.71788 K, iteration i=2
+    max leaf temp tl=300.71744 K, iteration i=3
+    max leaf temp tl=300.71715 K, iteration i=4
+    max leaf temp tl=300.71696 K, iteration i=5
+Vegetation model:  Solving for Tl, Final residual = 0.026902045, Final relative residual = 8.9459686e-05, No Iterations 5
+temperature parameters: max Tl = 300.71521, min T = 297.9, max T = 300.48272
+resistances: max rs = 6460.388, max ra = 134.13366
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00015853898, Final residual = 1.0835248e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0026903479, Final residual = 2.0859575e-05, No Iterations 1
+
+Internal iteration number: 58
+DILUPBiCGStab:  Solving for Ux, Initial residual = 5.4575314e-05, Final residual = 4.6217454e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0021902878, Final residual = 1.3623528e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0023648689, Final residual = 1.0288316e-06, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0022339223, Final residual = 7.6672679e-06, No Iterations 3
+Min/max T:298.08568 300.48287
+GAMG:  Solving for p_rgh, Initial residual = 0.0038013982, Final residual = 1.8248982e-05, No Iterations 3
+time step continuity errors : sum local = 1.3448664e-07, global = 2.7437035e-08, cumulative = -6.6556429
+DILUPBiCGStab:  Solving for w, Initial residual = 0.003500763, Final residual = 1.2504269e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7753748
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.71521k, iteration i=0
+    max leaf temp tl=300.72479 K, iteration i=1
+    max leaf temp tl=300.72433 K, iteration i=2
+    max leaf temp tl=300.72402 K, iteration i=3
+    max leaf temp tl=300.72382 K, iteration i=4
+    max leaf temp tl=300.7237 K, iteration i=5
+Vegetation model:  Solving for Tl, Final residual = 0.023502407, Final relative residual = 7.8152828e-05, No Iterations 5
+temperature parameters: max Tl = 300.72249, min T = 298.08568, max T = 300.48287
+resistances: max rs = 6460.5739, max ra = 136.6335
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00015274277, Final residual = 1.0400297e-06, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0025434776, Final residual = 1.9617108e-05, No Iterations 1
+
+Internal iteration number: 59
+DILUPBiCGStab:  Solving for Ux, Initial residual = 5.08957e-05, Final residual = 4.3523639e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0020557851, Final residual = 9.2639552e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0021607487, Final residual = 9.5594376e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0020844534, Final residual = 6.5925607e-06, No Iterations 3
+Min/max T:298.25806 300.48295
+GAMG:  Solving for p_rgh, Initial residual = 0.0034914545, Final residual = 1.6729508e-05, No Iterations 3
+time step continuity errors : sum local = 1.2346278e-07, global = 2.5777805e-08, cumulative = -6.6556429
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0048888193, Final residual = 1.7436852e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7853252
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.72249k, iteration i=0
+    max leaf temp tl=300.72896 K, iteration i=1
+    max leaf temp tl=300.72864 K, iteration i=2
+    max leaf temp tl=300.72844 K, iteration i=3
+    max leaf temp tl=300.72831 K, iteration i=4
+    max leaf temp tl=300.72822 K, iteration i=5
+Vegetation model:  Solving for Tl, Final residual = 0.022088072, Final relative residual = 7.3448617e-05, No Iterations 5
+temperature parameters: max Tl = 300.7274, min T = 298.25806, max T = 300.48295
+resistances: max rs = 6460.7376, max ra = 137.54066
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00014720842, Final residual = 9.9814988e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0024069952, Final residual = 1.8516392e-05, No Iterations 1
+
+Internal iteration number: 60
+DILUPBiCGStab:  Solving for Ux, Initial residual = 4.768619e-05, Final residual = 4.2103434e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0019402447, Final residual = 1.2582713e-05, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0019745891, Final residual = 8.57527e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0018923752, Final residual = 7.860036e-06, No Iterations 3
+Min/max T:298.4373 300.48307
+GAMG:  Solving for p_rgh, Initial residual = 0.0031651949, Final residual = 1.5754717e-05, No Iterations 3
+time step continuity errors : sum local = 1.1641701e-07, global = 2.4937807e-08, cumulative = -6.6556429
+DILUPBiCGStab:  Solving for w, Initial residual = 0.008885882, Final residual = 3.1320485e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.7951693
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.7274k, iteration i=0
+    max leaf temp tl=300.73167 K, iteration i=1
+    max leaf temp tl=300.73146 K, iteration i=2
+    max leaf temp tl=300.73133 K, iteration i=3
+    max leaf temp tl=300.73124 K, iteration i=4
+Vegetation model:  Solving for Tl, Final residual = 0.028548978, Final relative residual = 9.4931867e-05, No Iterations 4
+temperature parameters: max Tl = 300.73041, min T = 298.4373, max T = 300.48307
+resistances: max rs = 6460.8754, max ra = 137.13367
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00014192377, Final residual = 9.5767009e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0022797607, Final residual = 1.7567805e-05, No Iterations 1
+
+Internal iteration number: 61
+DILUPBiCGStab:  Solving for Ux, Initial residual = 4.4701046e-05, Final residual = 4.0068381e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0018363258, Final residual = 7.5498401e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0018217585, Final residual = 7.8501483e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.001707711, Final residual = 5.3548078e-06, No Iterations 3
+Min/max T:298.58694 300.48314
+GAMG:  Solving for p_rgh, Initial residual = 0.0030301809, Final residual = 1.4666622e-05, No Iterations 3
+time step continuity errors : sum local = 1.0852381e-07, global = 2.3958466e-08, cumulative = -6.6556428
+DILUPBiCGStab:  Solving for w, Initial residual = 0.075923664, Final residual = 0.00026701017, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8048613
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73041k, iteration i=0
+    max leaf temp tl=300.73372 K, iteration i=1
+    max leaf temp tl=300.73356 K, iteration i=2
+    max leaf temp tl=300.73345 K, iteration i=3
+    max leaf temp tl=300.73339 K, iteration i=4
+Vegetation model:  Solving for Tl, Final residual = 0.027496484, Final relative residual = 9.1431432e-05, No Iterations 4
+temperature parameters: max Tl = 300.73275, min T = 298.58694, max T = 300.48314
+resistances: max rs = 6460.995, max ra = 135.80288
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00013686875, Final residual = 9.1939075e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0021609033, Final residual = 1.6838168e-05, No Iterations 1
+
+Internal iteration number: 62
+DILUPBiCGStab:  Solving for Ux, Initial residual = 4.2104504e-05, Final residual = 3.878739e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0017439955, Final residual = 7.4624502e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0016839282, Final residual = 7.9442869e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0014935939, Final residual = 9.1577979e-06, No Iterations 3
+Min/max T:298.7277 300.48323
+GAMG:  Solving for p_rgh, Initial residual = 0.0028079312, Final residual = 1.3750652e-05, No Iterations 3
+time step continuity errors : sum local = 1.018682e-07, global = 2.2823369e-08, cumulative = -6.6556428
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0074614319, Final residual = 2.6374357e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8143708
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73275k, iteration i=0
+    max leaf temp tl=300.73506 K, iteration i=1
+    max leaf temp tl=300.73495 K, iteration i=2
+    max leaf temp tl=300.73487 K, iteration i=3
+    max leaf temp tl=300.73483 K, iteration i=4
+Vegetation model:  Solving for Tl, Final residual = 0.024130554, Final relative residual = 8.0238641e-05, No Iterations 4
+temperature parameters: max Tl = 300.73438, min T = 298.7277, max T = 300.48323
+resistances: max rs = 6461.0931, max ra = 133.92734
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00013202352, Final residual = 8.8172604e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0020496873, Final residual = 1.6194332e-05, No Iterations 1
+
+Internal iteration number: 63
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.9747366e-05, Final residual = 3.7058432e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0016559687, Final residual = 6.1387092e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0015643743, Final residual = 7.5487436e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0012888958, Final residual = 4.4042437e-06, No Iterations 3
+Min/max T:298.86857 300.48328
+GAMG:  Solving for p_rgh, Initial residual = 0.0026215177, Final residual = 1.2729102e-05, No Iterations 3
+time step continuity errors : sum local = 9.4415737e-08, global = 2.1611456e-08, cumulative = -6.6556428
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0036855122, Final residual = 1.2809354e-05, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8236774
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73438k, iteration i=0
+    max leaf temp tl=300.73647 K, iteration i=1
+    max leaf temp tl=300.73637 K, iteration i=2
+    max leaf temp tl=300.73631 K, iteration i=3
+    max leaf temp tl=300.73626 K, iteration i=4
+Vegetation model:  Solving for Tl, Final residual = 0.021646415, Final relative residual = 7.1978069e-05, No Iterations 4
+temperature parameters: max Tl = 300.73586, min T = 298.86857, max T = 300.48328
+resistances: max rs = 6461.1804, max ra = 131.803
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00012737873, Final residual = 8.4590507e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0019459463, Final residual = 1.5621012e-05, No Iterations 1
+
+Internal iteration number: 64
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.7644783e-05, Final residual = 3.5892732e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0015817712, Final residual = 5.9147573e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0014573474, Final residual = 7.5292354e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0010826636, Final residual = 4.6915152e-06, No Iterations 3
+Min/max T:298.99219 300.48336
+GAMG:  Solving for p_rgh, Initial residual = 0.0024224228, Final residual = 1.2088101e-05, No Iterations 3
+time step continuity errors : sum local = 8.9762937e-08, global = 2.0663365e-08, cumulative = -6.6556428
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0023428202, Final residual = 8.0161731e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8327524
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73586k, iteration i=0
+    max leaf temp tl=300.73777 K, iteration i=1
+    max leaf temp tl=300.73768 K, iteration i=2
+    max leaf temp tl=300.73762 K, iteration i=3
+Vegetation model:  Solving for Tl, Final residual = 0.027302023, Final relative residual = 9.0783531e-05, No Iterations 3
+temperature parameters: max Tl = 300.73705, min T = 298.99219, max T = 300.48336
+resistances: max rs = 6461.2532, max ra = 129.62892
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00012292359, Final residual = 8.1086274e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0018487918, Final residual = 1.507836e-05, No Iterations 1
+
+Internal iteration number: 65
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.5698104e-05, Final residual = 3.5375067e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0015100641, Final residual = 5.2838746e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0013618103, Final residual = 6.8100841e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00093802495, Final residual = 2.9177181e-06, No Iterations 3
+Min/max T:299.10551 300.48339
+GAMG:  Solving for p_rgh, Initial residual = 0.0022917817, Final residual = 1.1356428e-05, No Iterations 3
+time step continuity errors : sum local = 8.4427805e-08, global = 1.9734436e-08, cumulative = -6.6556428
+DILUPBiCGStab:  Solving for w, Initial residual = 0.001658973, Final residual = 5.6958571e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8415771
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73705k, iteration i=0
+    max leaf temp tl=300.73934 K, iteration i=1
+    max leaf temp tl=300.73923 K, iteration i=2
+    max leaf temp tl=300.73916 K, iteration i=3
+Vegetation model:  Solving for Tl, Final residual = 0.026841706, Final relative residual = 8.9252448e-05, No Iterations 3
+temperature parameters: max Tl = 300.73848, min T = 299.10551, max T = 300.48339
+resistances: max rs = 6461.3168, max ra = 127.52527
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00011864535, Final residual = 7.777042e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0017576207, Final residual = 1.4579409e-05, No Iterations 1
+
+Internal iteration number: 66
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.3951209e-05, Final residual = 3.3243061e-07, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0014480058, Final residual = 4.8312874e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0012778009, Final residual = 6.8265223e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00079965698, Final residual = 5.2073935e-06, No Iterations 3
+Min/max T:299.2083 300.48345
+GAMG:  Solving for p_rgh, Initial residual = 0.0021475595, Final residual = 1.0707184e-05, No Iterations 3
+time step continuity errors : sum local = 7.9687413e-08, global = 1.8716309e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.0012476858, Final residual = 4.31506e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8501335
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.73848k, iteration i=0
+    max leaf temp tl=300.74099 K, iteration i=1
+    max leaf temp tl=300.74087 K, iteration i=2
+    max leaf temp tl=300.7408 K, iteration i=3
+Vegetation model:  Solving for Tl, Final residual = 0.023975125, Final relative residual = 7.972023e-05, No Iterations 3
+temperature parameters: max Tl = 300.74005, min T = 299.2083, max T = 300.48345
+resistances: max rs = 6461.3694, max ra = 125.55456
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.0001145375, Final residual = 7.4657493e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0016719414, Final residual = 1.4083758e-05, No Iterations 1
+
+Internal iteration number: 67
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.2310703e-05, Final residual = 5.2166217e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0013913313, Final residual = 4.3610713e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0012061813, Final residual = 6.7368225e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00068709704, Final residual = 2.1223864e-06, No Iterations 3
+Min/max T:299.30745 300.48348
+GAMG:  Solving for p_rgh, Initial residual = 0.0020296762, Final residual = 1.0113895e-05, No Iterations 3
+time step continuity errors : sum local = 7.5353411e-08, global = 1.7750544e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00097489771, Final residual = 3.3709452e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8583989
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.74005k, iteration i=0
+    max leaf temp tl=300.74302 K, iteration i=1
+    max leaf temp tl=300.74288 K, iteration i=2
+    max leaf temp tl=300.74279 K, iteration i=3
+Vegetation model:  Solving for Tl, Final residual = 0.021416854, Final relative residual = 7.1213192e-05, No Iterations 3
+temperature parameters: max Tl = 300.7419, min T = 299.30745, max T = 300.48348
+resistances: max rs = 6461.4163, max ra = 123.74164
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00011058992, Final residual = 7.1934085e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0015912265, Final residual = 1.3599844e-05, No Iterations 1
+
+Internal iteration number: 68
+DILUPBiCGStab:  Solving for Ux, Initial residual = 3.0802434e-05, Final residual = 4.979737e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.001337826, Final residual = 3.9966351e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0011398116, Final residual = 6.9487592e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00059254316, Final residual = 2.6831374e-06, No Iterations 3
+Min/max T:299.38676 300.48352
+GAMG:  Solving for p_rgh, Initial residual = 0.0019229703, Final residual = 9.5933057e-06, No Iterations 3
+time step continuity errors : sum local = 7.1546164e-08, global = 1.7167789e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00078212132, Final residual = 2.6531188e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8663706
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.7419k, iteration i=0
+    max leaf temp tl=300.74524 K, iteration i=1
+    max leaf temp tl=300.74508 K, iteration i=2
+    max leaf temp tl=300.74498 K, iteration i=3
+Vegetation model:  Solving for Tl, Final residual = 0.021349747, Final relative residual = 7.0989538e-05, No Iterations 3
+temperature parameters: max Tl = 300.74398, min T = 299.38676, max T = 300.48352
+resistances: max rs = 6461.4551, max ra = 122.0914
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00010678813, Final residual = 6.9182025e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.001514905, Final residual = 1.3108568e-05, No Iterations 1
+
+Internal iteration number: 69
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.9364968e-05, Final residual = 5.2062271e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0012899545, Final residual = 3.9537779e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0010831227, Final residual = 6.6871245e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00049373617, Final residual = 1.3662106e-06, No Iterations 3
+Min/max T:299.46458 300.48354
+GAMG:  Solving for p_rgh, Initial residual = 0.0018247139, Final residual = 9.0935802e-06, No Iterations 3
+time step continuity errors : sum local = 6.788543e-08, global = 1.6281353e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00063966408, Final residual = 2.1283284e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8740456
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.74398k, iteration i=0
+    max leaf temp tl=300.74779 K, iteration i=1
+    max leaf temp tl=300.74761 K, iteration i=2
+Vegetation model:  Solving for Tl, Final residual = 0.028529682, Final relative residual = 9.4862539e-05, No Iterations 2
+temperature parameters: max Tl = 300.74587, min T = 299.46458, max T = 300.48354
+resistances: max rs = 6461.4897, max ra = 120.59709
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 0.00010312011, Final residual = 6.6535658e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0014425167, Final residual = 1.2619023e-05, No Iterations 1
+
+Internal iteration number: 70
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.8059312e-05, Final residual = 4.8021872e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0012410892, Final residual = 3.8471297e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0010296404, Final residual = 6.77709e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00044435393, Final residual = 4.1961272e-06, No Iterations 2
+Min/max T:299.54173 300.48358
+GAMG:  Solving for p_rgh, Initial residual = 0.001727041, Final residual = 8.5593156e-06, No Iterations 3
+time step continuity errors : sum local = 6.3955873e-08, global = 1.5626182e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00053081512, Final residual = 1.7479991e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.881417
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.74587k, iteration i=0
+    max leaf temp tl=300.75064 K, iteration i=1
+    max leaf temp tl=300.75041 K, iteration i=2
+Vegetation model:  Solving for Tl, Final residual = 0.024158097, Final relative residual = 8.0326066e-05, No Iterations 2
+temperature parameters: max Tl = 300.74823, min T = 299.54173, max T = 300.48358
+resistances: max rs = 6461.5189, max ra = 119.24455
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 9.9581505e-05, Final residual = 6.3946836e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0013737074, Final residual = 1.2123437e-05, No Iterations 1
+
+Internal iteration number: 71
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.6785538e-05, Final residual = 5.1885995e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0011981966, Final residual = 3.7353537e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0009840396, Final residual = 6.7411508e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00036065277, Final residual = 2.80143e-06, No Iterations 2
+Min/max T:299.61162 300.48359
+GAMG:  Solving for p_rgh, Initial residual = 0.0016325725, Final residual = 8.1309324e-06, No Iterations 3
+time step continuity errors : sum local = 6.0810248e-08, global = 1.48867e-08, cumulative = -6.6556427
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00044557393, Final residual = 1.4597475e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8884836
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.74823k, iteration i=0
+    max leaf temp tl=300.75364 K, iteration i=1
+    max leaf temp tl=300.75338 K, iteration i=2
+Vegetation model:  Solving for Tl, Final residual = 0.021973204, Final relative residual = 7.306054e-05, No Iterations 2
+temperature parameters: max Tl = 300.75091, min T = 299.61162, max T = 300.48359
+resistances: max rs = 6461.5435, max ra = 118.01616
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 9.616208e-05, Final residual = 6.1456775e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.001308495, Final residual = 1.1639396e-05, No Iterations 1
+
+Internal iteration number: 72
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.5630192e-05, Final residual = 5.9738009e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0011558323, Final residual = 3.9217048e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00093669274, Final residual = 5.4247915e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00030744551, Final residual = 2.1634105e-06, No Iterations 2
+Min/max T:299.67696 300.48362
+GAMG:  Solving for p_rgh, Initial residual = 0.001548814, Final residual = 7.7058236e-06, No Iterations 3
+time step continuity errors : sum local = 5.7680394e-08, global = 1.4269391e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00037747157, Final residual = 1.2107915e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.8952431
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75091k, iteration i=0
+    max leaf temp tl=300.75678 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.0267817, Final relative residual = 8.9047702e-05, No Iterations 1
+temperature parameters: max Tl = 300.75267, min T = 299.67696, max T = 300.48362
+resistances: max rs = 6461.5638, max ra = 116.8936
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 9.2858019e-05, Final residual = 5.9016114e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00124665, Final residual = 1.1140383e-05, No Iterations 1
+
+Internal iteration number: 73
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.4498802e-05, Final residual = 8.0926504e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0011168431, Final residual = 3.9921919e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00089545571, Final residual = 5.2253734e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00027668864, Final residual = 1.4088509e-06, No Iterations 3
+Min/max T:299.73623 300.48363
+GAMG:  Solving for p_rgh, Initial residual = 0.0014769466, Final residual = 7.2702327e-06, No Iterations 3
+time step continuity errors : sum local = 5.446508e-08, global = 1.3720547e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00032211808, Final residual = 1.0111531e-06, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9016986
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75267k, iteration i=0
+    max leaf temp tl=300.7603 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.029596572, Final relative residual = 9.8405849e-05, No Iterations 1
+temperature parameters: max Tl = 300.75496, min T = 299.73623, max T = 300.48363
+resistances: max rs = 6461.5829, max ra = 117.17625
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 8.965688e-05, Final residual = 5.6683953e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0011875533, Final residual = 1.0655278e-05, No Iterations 1
+
+Internal iteration number: 74
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.3450823e-05, Final residual = 6.188373e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.001080744, Final residual = 3.8403288e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00085881471, Final residual = 5.7863147e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00024092128, Final residual = 1.3921973e-06, No Iterations 3
+Min/max T:299.78599 300.48366
+GAMG:  Solving for p_rgh, Initial residual = 0.0014210607, Final residual = 6.8393161e-06, No Iterations 3
+time step continuity errors : sum local = 5.1276739e-08, global = 1.333906e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00027660405, Final residual = 8.5219072e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.907848
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75496k, iteration i=0
+    max leaf temp tl=300.76379 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.029302064, Final relative residual = 9.7425503e-05, No Iterations 1
+temperature parameters: max Tl = 300.75761, min T = 299.78599, max T = 300.48366
+resistances: max rs = 6461.5988, max ra = 117.77684
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 8.6554431e-05, Final residual = 5.4445835e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0011312291, Final residual = 1.0183714e-05, No Iterations 1
+
+Internal iteration number: 75
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.2376655e-05, Final residual = 6.6558932e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.001043115, Final residual = 3.9643673e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00082336874, Final residual = 5.1556384e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00021918078, Final residual = 1.9174453e-06, No Iterations 2
+Min/max T:299.82949 300.48366
+GAMG:  Solving for p_rgh, Initial residual = 0.0013636435, Final residual = 6.4656011e-06, No Iterations 3
+time step continuity errors : sum local = 4.8510748e-08, global = 1.2767049e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00023878118, Final residual = 7.2369292e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9137021
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75761k, iteration i=0
+    max leaf temp tl=300.76723 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.027307727, Final relative residual = 9.0793558e-05, No Iterations 1
+temperature parameters: max Tl = 300.7605, min T = 299.82949, max T = 300.48365
+resistances: max rs = 6461.6118, max ra = 118.3972
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 8.3547396e-05, Final residual = 5.2305228e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0010775375, Final residual = 9.7197673e-06, No Iterations 1
+
+Internal iteration number: 76
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.1379846e-05, Final residual = 5.9533279e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0010081981, Final residual = 3.7763473e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00079118722, Final residual = 5.6751673e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00018717425, Final residual = 1.7057765e-06, No Iterations 2
+Min/max T:299.86772 300.48368
+GAMG:  Solving for p_rgh, Initial residual = 0.0012849871, Final residual = 6.0708575e-06, No Iterations 3
+time step continuity errors : sum local = 4.5579847e-08, global = 1.2559692e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00020708247, Final residual = 6.0198178e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9192666
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.7605k, iteration i=0
+    max leaf temp tl=300.77059 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.025000181, Final relative residual = 8.3120432e-05, No Iterations 1
+temperature parameters: max Tl = 300.76352, min T = 299.86772, max T = 300.48368
+resistances: max rs = 6461.6231, max ra = 119.02064
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 8.0632464e-05, Final residual = 5.026369e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0010260755, Final residual = 9.2519245e-06, No Iterations 1
+
+Internal iteration number: 77
+DILUPBiCGStab:  Solving for Ux, Initial residual = 2.0385678e-05, Final residual = 6.8928401e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00097270227, Final residual = 3.8378132e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0007581033, Final residual = 4.4932117e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00017483179, Final residual = 1.4744105e-06, No Iterations 2
+Min/max T:299.9032 300.48368
+GAMG:  Solving for p_rgh, Initial residual = 0.0012352089, Final residual = 5.7659352e-06, No Iterations 3
+time step continuity errors : sum local = 4.3318831e-08, global = 1.2037311e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00018033844, Final residual = 5.0639895e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9245527
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.76352k, iteration i=0
+    max leaf temp tl=300.77379 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.022559033, Final relative residual = 7.500332e-05, No Iterations 1
+temperature parameters: max Tl = 300.7666, min T = 299.9032, max T = 300.48368
+resistances: max rs = 6461.6332, max ra = 119.63004
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 7.7803804e-05, Final residual = 4.8367526e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0009767649, Final residual = 8.788034e-06, No Iterations 1
+
+Internal iteration number: 78
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.9460839e-05, Final residual = 5.5720788e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00094039663, Final residual = 3.8436182e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00072798958, Final residual = 4.1908062e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00015463085, Final residual = 1.3243288e-06, No Iterations 2
+Min/max T:299.93487 300.4837
+GAMG:  Solving for p_rgh, Initial residual = 0.0011663155, Final residual = 5.3828466e-06, No Iterations 3
+time step continuity errors : sum local = 4.0464933e-08, global = 1.1904309e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00015763675, Final residual = 4.2582398e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.929567
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.7666k, iteration i=0
+    max leaf temp tl=300.77677 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.020020037, Final relative residual = 6.6561116e-05, No Iterations 1
+temperature parameters: max Tl = 300.76965, min T = 299.93487, max T = 300.4837
+resistances: max rs = 6461.6419, max ra = 120.20811
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 7.5058236e-05, Final residual = 4.6635169e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0009293136, Final residual = 8.325222e-06, No Iterations 1
+
+Internal iteration number: 79
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.8522042e-05, Final residual = 6.2567803e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0009058168, Final residual = 3.814877e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00069892381, Final residual = 4.0176932e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00014689636, Final residual = 1.216993e-06, No Iterations 2
+Min/max T:299.96085 300.4837
+GAMG:  Solving for p_rgh, Initial residual = 0.0011255679, Final residual = 5.057735e-06, No Iterations 3
+time step continuity errors : sum local = 3.8041987e-08, global = 1.1436309e-08, cumulative = -6.6556426
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00013828768, Final residual = 3.6086896e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.934322
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.76965k, iteration i=0
+    max leaf temp tl=300.77945 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.01761226, Final relative residual = 5.8555397e-05, No Iterations 1
+temperature parameters: max Tl = 300.77259, min T = 299.96085, max T = 300.48369
+resistances: max rs = 6461.6496, max ra = 120.73838
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 7.2394437e-05, Final residual = 4.4908913e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00088363863, Final residual = 7.8610838e-06, No Iterations 1
+
+Internal iteration number: 80
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.7651786e-05, Final residual = 5.3254166e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00087314148, Final residual = 3.7681764e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00067059098, Final residual = 3.8457042e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00013331381, Final residual = 1.0219012e-06, No Iterations 2
+Min/max T:299.99451 300.48371
+GAMG:  Solving for p_rgh, Initial residual = 0.0010608505, Final residual = 4.7111134e-06, No Iterations 3
+time step continuity errors : sum local = 3.5452644e-08, global = 1.1220362e-08, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00012172074, Final residual = 3.0884529e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9388268
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77259k, iteration i=0
+    max leaf temp tl=300.78176 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.015368957, Final relative residual = 5.1096706e-05, No Iterations 1
+temperature parameters: max Tl = 300.77534, min T = 299.99451, max T = 300.48371
+resistances: max rs = 6461.6564, max ra = 121.20536
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 6.9806842e-05, Final residual = 4.3209286e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00083957746, Final residual = 7.4042056e-06, No Iterations 1
+
+Internal iteration number: 81
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.6764068e-05, Final residual = 5.3376964e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00083832257, Final residual = 3.7261415e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00064284001, Final residual = 6.3947884e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00012612046, Final residual = 9.0732813e-07, No Iterations 2
+Min/max T:300 300.48371
+GAMG:  Solving for p_rgh, Initial residual = 0.0010153686, Final residual = 4.4278699e-06, No Iterations 3
+time step continuity errors : sum local = 3.333629e-08, global = 1.0854869e-08, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 0.00010747956, Final residual = 2.6815893e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9430939
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77534k, iteration i=0
+    max leaf temp tl=300.78365 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.014959741, Final relative residual = 4.9735885e-05, No Iterations 1
+temperature parameters: max Tl = 300.77784, min T = 300.00363, max T = 300.4837
+resistances: max rs = 6461.6624, max ra = 121.59494
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 6.7291352e-05, Final residual = 4.1570086e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00079693269, Final residual = 6.9596333e-06, No Iterations 1
+
+Internal iteration number: 82
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.5941827e-05, Final residual = 4.4289811e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00080379329, Final residual = 3.6761379e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00061677541, Final residual = 3.5101606e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00011229604, Final residual = 8.0528538e-07, No Iterations 2
+Min/max T:300 300.48372
+GAMG:  Solving for p_rgh, Initial residual = 0.00095642382, Final residual = 4.0815379e-06, No Iterations 3
+time step continuity errors : sum local = 3.0741774e-08, global = 1.0766629e-08, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 9.521896e-05, Final residual = 2.3266346e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9471347
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77784k, iteration i=0
+    max leaf temp tl=300.78506 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.015570227, Final relative residual = 5.1765293e-05, No Iterations 1
+temperature parameters: max Tl = 300.78, min T = 300.00928, max T = 300.48372
+resistances: max rs = 6461.6677, max ra = 121.89524
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 6.484555e-05, Final residual = 3.999014e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00075597166, Final residual = 6.5308961e-06, No Iterations 1
+
+Internal iteration number: 83
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.5110753e-05, Final residual = 4.2178536e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00076898324, Final residual = 3.5567647e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0005897955, Final residual = 5.3935479e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00010709235, Final residual = 7.1003606e-07, No Iterations 2
+Min/max T:300 300.48372
+GAMG:  Solving for p_rgh, Initial residual = 0.00091203138, Final residual = 3.8208443e-06, No Iterations 3
+time step continuity errors : sum local = 2.8788392e-08, global = 1.0375837e-08, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 8.4657782e-05, Final residual = 2.0587189e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9509623
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78k, iteration i=0
+    max leaf temp tl=300.78596 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.016170704, Final relative residual = 5.3761501e-05, No Iterations 1
+temperature parameters: max Tl = 300.78179, min T = 300.0277, max T = 300.48371
+resistances: max rs = 6461.6724, max ra = 122.09651
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 6.2467349e-05, Final residual = 3.8474854e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00071659083, Final residual = 6.117687e-06, No Iterations 1
+
+Internal iteration number: 84
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.4348263e-05, Final residual = 3.4638855e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00073446735, Final residual = 3.5057232e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00056397977, Final residual = 5.4510086e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 9.7877218e-05, Final residual = 5.8503614e-07, No Iterations 2
+Min/max T:300 300.48373
+GAMG:  Solving for p_rgh, Initial residual = 0.00085075627, Final residual = 3.5646888e-06, No Iterations 3
+time step continuity errors : sum local = 2.686692e-08, global = 1.0089749e-08, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 7.5526877e-05, Final residual = 1.8358752e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9545883
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78179k, iteration i=0
+    max leaf temp tl=300.78632 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.016757162, Final relative residual = 5.5711183e-05, No Iterations 1
+temperature parameters: max Tl = 300.78315, min T = 300.04867, max T = 300.48373
+resistances: max rs = 6461.6766, max ra = 122.19292
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 6.0154375e-05, Final residual = 3.7020672e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00067865298, Final residual = 5.7163956e-06, No Iterations 1
+
+Internal iteration number: 85
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.3582461e-05, Final residual = 3.1644565e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00069907574, Final residual = 3.4268693e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00053926665, Final residual = 5.2650254e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 9.10404e-05, Final residual = 5.6293911e-07, No Iterations 2
+Min/max T:300 300.48373
+GAMG:  Solving for p_rgh, Initial residual = 0.00081226948, Final residual = 3.3175288e-06, No Iterations 3
+time step continuity errors : sum local = 2.501136e-08, global = 9.7996152e-09, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 6.7635594e-05, Final residual = 1.6438302e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9580237
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78315k, iteration i=0
+    max leaf temp tl=300.78613 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.017331636, Final relative residual = 5.7621126e-05, No Iterations 1
+temperature parameters: max Tl = 300.78404, min T = 300.0692, max T = 300.48372
+resistances: max rs = 6461.6802, max ra = 122.18173
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 5.7905148e-05, Final residual = 3.5625503e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00064197576, Final residual = 5.3258572e-06, No Iterations 1
+
+Internal iteration number: 86
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.2881999e-05, Final residual = 2.8486287e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00066570227, Final residual = 3.3283574e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0005140237, Final residual = 2.8387545e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 8.4822968e-05, Final residual = 4.7608132e-07, No Iterations 2
+Min/max T:300 300.48374
+GAMG:  Solving for p_rgh, Initial residual = 0.00075708536, Final residual = 3.0716385e-06, No Iterations 3
+time step continuity errors : sum local = 2.3163096e-08, global = 9.5724586e-09, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 6.0796621e-05, Final residual = 1.4885787e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9612794
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78404k, iteration i=0
+    max leaf temp tl=300.78542 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.017895298, Final relative residual = 5.949523e-05, No Iterations 1
+temperature parameters: max Tl = 300.78446, min T = 300.07848, max T = 300.48374
+resistances: max rs = 6461.6835, max ra = 122.06309
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 5.5720202e-05, Final residual = 3.4276873e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0006066844, Final residual = 4.9465383e-06, No Iterations 1
+
+Internal iteration number: 87
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.2178783e-05, Final residual = 2.6509485e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00063215423, Final residual = 3.1718211e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00048858337, Final residual = 4.5059819e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 8.2411896e-05, Final residual = 3.2908631e-07, No Iterations 3
+Min/max T:300 300.48374
+GAMG:  Solving for p_rgh, Initial residual = 0.00071931312, Final residual = 2.8925962e-06, No Iterations 3
+time step continuity errors : sum local = 2.1817279e-08, global = 9.1323382e-09, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 5.4845745e-05, Final residual = 1.381841e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9643665
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78446k, iteration i=0
+    max leaf temp tl=300.78421 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.018443796, Final relative residual = 6.1319031e-05, No Iterations 1
+temperature parameters: max Tl = 300.78438, min T = 300.10254, max T = 300.48373
+resistances: max rs = 6461.6864, max ra = 121.84056
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 5.3596981e-05, Final residual = 3.2968987e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00057264345, Final residual = 4.5785908e-06, No Iterations 1
+
+Internal iteration number: 88
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.1537699e-05, Final residual = 2.3913572e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00059973094, Final residual = 3.0868954e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00046520534, Final residual = 4.5700706e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 7.8895411e-05, Final residual = 3.8722514e-07, No Iterations 2
+Min/max T:300 300.48374
+GAMG:  Solving for p_rgh, Initial residual = 0.00067454927, Final residual = 2.7078661e-06, No Iterations 3
+time step continuity errors : sum local = 2.0427672e-08, global = 8.8447537e-09, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 4.9658365e-05, Final residual = 1.2862188e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9672955
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78438k, iteration i=0
+    max leaf temp tl=300.78252 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.018970943, Final relative residual = 6.3071958e-05, No Iterations 1
+temperature parameters: max Tl = 300.78382, min T = 300.10983, max T = 300.48374
+resistances: max rs = 6461.6889, max ra = 121.51934
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 5.1532779e-05, Final residual = 3.1694931e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00053984966, Final residual = 4.2222507e-06, No Iterations 1
+
+Internal iteration number: 89
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.0890922e-05, Final residual = 2.2506946e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00056666252, Final residual = 2.9319083e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00044249045, Final residual = 4.256125e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 7.7457923e-05, Final residual = 5.5111998e-07, No Iterations 2
+Min/max T:300 300.48374
+GAMG:  Solving for p_rgh, Initial residual = 0.00063932179, Final residual = 2.5471394e-06, No Iterations 3
+time step continuity errors : sum local = 1.9218123e-08, global = 8.5415752e-09, cumulative = -6.6556425
+DILUPBiCGStab:  Solving for w, Initial residual = 4.5122267e-05, Final residual = 1.1979546e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9700761
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78382k, iteration i=0
+    max leaf temp tl=300.78039 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.019480398, Final relative residual = 6.4766182e-05, No Iterations 1
+temperature parameters: max Tl = 300.7828, min T = 300.1284, max T = 300.48373
+resistances: max rs = 6461.6911, max ra = 121.10516
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.9527305e-05, Final residual = 3.0458859e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00050834502, Final residual = 3.8782548e-06, No Iterations 1
+
+Internal iteration number: 90
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1.0303819e-05, Final residual = 9.7988494e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00053608485, Final residual = 2.8109113e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00041937692, Final residual = 3.8394719e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 7.2231213e-05, Final residual = 3.7760718e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00059740622, Final residual = 2.3927832e-06, No Iterations 3
+time step continuity errors : sum local = 1.8055652e-08, global = 8.1304149e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 4.1149887e-05, Final residual = 1.1252601e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9727213
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.7828k, iteration i=0
+    max leaf temp tl=300.77786 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.019976854, Final relative residual = 6.6417301e-05, No Iterations 1
+temperature parameters: max Tl = 300.78132, min T = 300.13875, max T = 300.48375
+resistances: max rs = 6461.693, max ra = 120.60345
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.7578738e-05, Final residual = 2.9267753e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00047804709, Final residual = 3.5464634e-06, No Iterations 1
+
+Internal iteration number: 91
+DILUPBiCGStab:  Solving for Ux, Initial residual = 9.7161946e-06, Final residual = 9.3688778e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0005056013, Final residual = 2.6544806e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00039721145, Final residual = 2.1219493e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 7.2940871e-05, Final residual = 1.8995926e-07, No Iterations 3
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00056587894, Final residual = 2.261264e-06, No Iterations 3
+time step continuity errors : sum local = 1.7064877e-08, global = 7.7270486e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 3.7657716e-05, Final residual = 1.0650376e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9752346
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.78132k, iteration i=0
+    max leaf temp tl=300.77498 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.020434112, Final relative residual = 6.7938204e-05, No Iterations 1
+temperature parameters: max Tl = 300.77941, min T = 300.14825, max T = 300.48373
+resistances: max rs = 6461.6948, max ra = 120.02491
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.5685495e-05, Final residual = 2.8116206e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00044895965, Final residual = 3.2268834e-06, No Iterations 1
+
+Internal iteration number: 92
+DILUPBiCGStab:  Solving for Ux, Initial residual = 9.1901412e-06, Final residual = 8.4517582e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00047738926, Final residual = 2.4334804e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00037484988, Final residual = 2.9825411e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.8529823e-05, Final residual = 2.9308412e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00053113033, Final residual = 2.1196461e-06, No Iterations 3
+time step continuity errors : sum local = 1.5997316e-08, global = 7.3145838e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 3.4563582e-05, Final residual = 1.00956e-07, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9776229
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77941k, iteration i=0
+    max leaf temp tl=300.77179 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.020849601, Final relative residual = 6.9320334e-05, No Iterations 1
+temperature parameters: max Tl = 300.77713, min T = 300.157, max T = 300.48375
+resistances: max rs = 6461.6964, max ra = 119.37854
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.3845831e-05, Final residual = 2.6995379e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00042113776, Final residual = 2.9234029e-06, No Iterations 1
+
+Internal iteration number: 93
+DILUPBiCGStab:  Solving for Ux, Initial residual = 8.6488503e-06, Final residual = 8.1037401e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0004487053, Final residual = 2.3039798e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00035495572, Final residual = 1.8824556e-07, No Iterations 3
+DILUPBiCGStab:  Solving for h, Initial residual = 7.0182783e-05, Final residual = 1.9389583e-07, No Iterations 3
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00050647353, Final residual = 2.0193458e-06, No Iterations 3
+time step continuity errors : sum local = 1.5241244e-08, global = 6.8849884e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 3.1826503e-05, Final residual = 9.627177e-08, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9798938
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77713k, iteration i=0
+    max leaf temp tl=300.76835 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.021240372, Final relative residual = 7.0620369e-05, No Iterations 1
+temperature parameters: max Tl = 300.77449, min T = 300.16494, max T = 300.48374
+resistances: max rs = 6461.6978, max ra = 118.67407
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.2059447e-05, Final residual = 2.5929705e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00039460114, Final residual = 2.6461908e-06, No Iterations 1
+
+Internal iteration number: 94
+DILUPBiCGStab:  Solving for Ux, Initial residual = 8.1741763e-06, Final residual = 7.6263032e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00042231105, Final residual = 2.0469648e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00033443249, Final residual = 2.5156356e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.5932772e-05, Final residual = 2.7285767e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00047520645, Final residual = 1.915133e-06, No Iterations 3
+time step continuity errors : sum local = 1.4455293e-08, global = 6.4427785e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.9404294e-05, Final residual = 9.1340832e-08, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9820536
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77449k, iteration i=0
+    max leaf temp tl=300.7647 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.02161042, Final relative residual = 7.1851583e-05, No Iterations 1
+temperature parameters: max Tl = 300.77156, min T = 300.17269, max T = 300.48375
+resistances: max rs = 6461.699, max ra = 117.92185
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 4.03261e-05, Final residual = 2.488581e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00036954207, Final residual = 2.4341616e-06, No Iterations 1
+
+Internal iteration number: 95
+DILUPBiCGStab:  Solving for Ux, Initial residual = 7.688982e-06, Final residual = 7.4544327e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00039641559, Final residual = 1.9308848e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00031634603, Final residual = 2.780535e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.7257226e-05, Final residual = 1.6459662e-07, No Iterations 3
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.0004553503, Final residual = 1.8140312e-06, No Iterations 3
+time step continuity errors : sum local = 1.3692571e-08, global = 6.0214071e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.7255385e-05, Final residual = 8.7051164e-08, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9841079
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.77156k, iteration i=0
+    max leaf temp tl=300.76091 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.021963983, Final relative residual = 7.3028052e-05, No Iterations 1
+temperature parameters: max Tl = 300.76836, min T = 300.17942, max T = 300.48374
+resistances: max rs = 6461.7, max ra = 117.13214
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.8643917e-05, Final residual = 2.3871501e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00034588107, Final residual = 2.2754615e-06, No Iterations 1
+
+Internal iteration number: 96
+DILUPBiCGStab:  Solving for Ux, Initial residual = 7.2688405e-06, Final residual = 7.118576e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0003723678, Final residual = 1.677675e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00029827396, Final residual = 2.0932623e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.3830651e-05, Final residual = 2.3079104e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00042886026, Final residual = 1.7476011e-06, No Iterations 3
+time step continuity errors : sum local = 1.3191437e-08, global = 5.5170148e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.5349038e-05, Final residual = 8.2636442e-08, No Iterations 4
+bounding magU, min: 0 max: 12.755409 average: 3.9860615
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.76836k, iteration i=0
+    max leaf temp tl=300.757 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.022297716, Final relative residual = 7.4138642e-05, No Iterations 1
+temperature parameters: max Tl = 300.76495, min T = 300.18486, max T = 300.48375
+resistances: max rs = 6461.701, max ra = 116.31432
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.7011655e-05, Final residual = 2.2891491e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0003236003, Final residual = 2.1623261e-06, No Iterations 1
+
+Internal iteration number: 97
+DILUPBiCGStab:  Solving for Ux, Initial residual = 6.8391873e-06, Final residual = 1.4494384e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00034914187, Final residual = 1.5577554e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00028149486, Final residual = 2.1673378e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.5115565e-05, Final residual = 6.1796479e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00041153657, Final residual = 1.6616113e-06, No Iterations 3
+time step continuity errors : sum local = 1.2542412e-08, global = 5.0865442e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.3653554e-05, Final residual = 2.2659627e-07, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.9879159
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.76495k, iteration i=0
+    max leaf temp tl=300.75304 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.022594258, Final relative residual = 7.5125618e-05, No Iterations 1
+temperature parameters: max Tl = 300.76138, min T = 300.18922, max T = 300.48374
+resistances: max rs = 6461.7017, max ra = 115.47898
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.5429233e-05, Final residual = 2.1942409e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00030277793, Final residual = 2.0771528e-06, No Iterations 1
+
+Internal iteration number: 98
+DILUPBiCGStab:  Solving for Ux, Initial residual = 6.4678607e-06, Final residual = 1.3996025e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00032766363, Final residual = 1.3369864e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00026507088, Final residual = 1.7965602e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.1689622e-05, Final residual = 2.5034702e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00039136727, Final residual = 1.5841026e-06, No Iterations 3
+time step continuity errors : sum local = 1.1957329e-08, global = 4.6636179e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.2122596e-05, Final residual = 1.9889938e-07, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.9896785
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.76138k, iteration i=0
+    max leaf temp tl=300.74904 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.022873965, Final relative residual = 7.6056651e-05, No Iterations 1
+temperature parameters: max Tl = 300.75768, min T = 300.19291, max T = 300.48375
+resistances: max rs = 6461.7024, max ra = 114.63132
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.3896139e-05, Final residual = 2.1022172e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00028350637, Final residual = 2.0057565e-06, No Iterations 1
+
+Internal iteration number: 99
+DILUPBiCGStab:  Solving for Ux, Initial residual = 6.0904473e-06, Final residual = 1.6354501e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00030726092, Final residual = 1.1999072e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00025055732, Final residual = 1.5669325e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.3099138e-05, Final residual = 4.4033897e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00037602424, Final residual = 1.4919777e-06, No Iterations 3
+time step continuity errors : sum local = 1.1261875e-08, global = 4.3738309e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 2.076148e-05, Final residual = 1.7724883e-07, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.9913536
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75768k, iteration i=0
+    max leaf temp tl=300.74503 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.023129451, Final relative residual = 7.6907176e-05, No Iterations 1
+temperature parameters: max Tl = 300.75388, min T = 300.19623, max T = 300.48374
+resistances: max rs = 6461.703, max ra = 114.48495
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.2410763e-05, Final residual = 2.0129976e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0002655178, Final residual = 1.9193426e-06, No Iterations 1
+
+Internal iteration number: 100
+DILUPBiCGStab:  Solving for Ux, Initial residual = 5.772303e-06, Final residual = 1.5234716e-08, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.00028904933, Final residual = 1.0503209e-06, No Iterations 2
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.00023648701, Final residual = 1.49264e-06, No Iterations 2
+DILUPBiCGStab:  Solving for h, Initial residual = 6.0120159e-05, Final residual = 3.1443019e-07, No Iterations 2
+Min/max T:300 300.48375
+GAMG:  Solving for p_rgh, Initial residual = 0.00035985625, Final residual = 1.434396e-06, No Iterations 3
+time step continuity errors : sum local = 1.0827174e-08, global = 3.9759439e-09, cumulative = -6.6556424
+DILUPBiCGStab:  Solving for w, Initial residual = 1.9536339e-05, Final residual = 1.5725864e-07, No Iterations 3
+bounding magU, min: 0 max: 12.755409 average: 3.9929437
+    max leaf temp tl=max(new_Tl) [0 0 0 1 0 0 0] 300.75388k, iteration i=0
+    max leaf temp tl=300.74819 K, iteration i=1
+Vegetation model:  Solving for Tl, Final residual = 0.023353429, Final relative residual = 7.7651103e-05, No Iterations 1
+temperature parameters: max Tl = 300.75003, min T = 300.19959, max T = 300.48375
+resistances: max rs = 6461.7035, max ra = 116.00743
+DILUPBiCGStab:  Solving for epsilon, Initial residual = 3.0973402e-05, Final residual = 1.9257731e-07, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.00024859425, Final residual = 1.8069727e-06, No Iterations 1
+
+
+air region solution ended in 100 iterations
+
+Updating long-wave radiation heat transfer for region: air
+Updating short-wave radiation heat transfer for region: air
+
+Vegetation region found...
+Updating T boundary fields...
+[1] Generating stack trace...
+[1] 
+
+Backtrace:
+	ZN10StackTraceC1Ev [0x626c1855+0x25]
+		 module: C:\Program Files\blueCFD-Core-2020\ThirdParty-8\platforms\mingw_w64GccDPInt32\lib\libstack_trace.dll
+	ZN4Foam5error10printStackERNS_7OstreamE [0x6c30ae5a+0x23a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	ZN4Foam7sigSegv14sigSegvHandlerEi [0x6c30bb03+0x33]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libOpenFOAM.dll
+	(No symbol) [0x4087e2]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	_C_specific_handler [0x7ffa1559ad48+0x98]
+		 module: C:\Windows\System32\msvcrt.dll
+	0_chkstk [0x7ffa172e48ff+0x12f]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	RtlVirtualUnwind2 [0x7ffa1727192e+0x35e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	KiUserExceptionDispatcher [0x7ffa172e38ee+0x2e]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+	ZN4Foam15mappedPatchBase9facePointERKNS_8polyMeshEiNS1_17cellDecompositionE [0x6aa8d97a+0x16a]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase10facePointsERKNS_9polyPatchE [0x6aa8fed3+0xa3]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam15mappedPatchBase11calcMappingEv [0x6aa94534+0x84]
+		 module: C:\Program Files\blueCFD-Core-2020\OpenFOAM-8\platforms\mingw_w64GccDPInt32Opt\lib\libmeshTools.dll
+	ZNK4Foam20mappedPatchFieldBaseIdE11mappedFieldEv [0x6cdf05db+0xb0b]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libvegetationModels.dll
+	ZN4Foam32mappedLeafTempFvPatchScalarField12updateCoeffsEv [0x6cdd13a7+0x47]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libvegetationModels.dll
+	ZN4Foam12fvPatchFieldIdE8evaluateENS_8UPstream10commsTypesE [0x6cdd7b77+0x37]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\lib\libvegetationModels.dll
+	(No symbol) [0x41f84c]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x47ac78]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4013c1]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	(No symbol) [0x4014f6]
+		 module: C:\Program Files\blueCFD-Core-2020\ofuser-of8\platforms\mingw_w64GccDPInt32Opt\bin\urbanMicroClimateFoam.exe
+	BaseThreadInitThunk [0x7ffa16fa4cb0+0x10]
+		 module: C:\Windows\System32\KERNEL32.DLL
+	RtlUserThreadStart [0x7ffa172bedcb+0x2b]
+		 module: C:\Windows\SYSTEM32\ntdll.dll
+
+job aborted:
+[ranks] message
+
+[0] terminated
+
+[1] process exited without calling finalize
+
+[2-11] terminated
+
+---- error analysis -----
+
+[1] on FOAM2
+urbanMicroClimateFoam ended prematurely and may have crashed. exit code 3
+
+---- error analysis -----

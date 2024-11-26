@@ -1,0 +1,86 @@
+FoamFile
+{
+  version    2.0;
+  format    ascii;
+  class    dictionary;
+  object    blockMeshDict;
+}
+convertToMeters    1;
+vertices
+(
+  (619.0887451171875 243.856201171875 0)
+  (619.0887451171875 72.856201171875 0)
+  (886.02001953125 72.856201171875 0)
+  (886.02001953125 243.856201171875 0)
+  (619.0887451171875 243.856201171875 84)
+  (619.0887451171875 72.856201171875 84)
+  (886.02001953125 72.856201171875 84)
+  (886.02001953125 243.856201171875 84)
+);
+blocks
+(
+  hex (0 1 2 3 4 5 6 7)
+  (
+    14
+    22
+    7
+  )
+  simpleGrading (1 1 1)
+);
+edges
+(
+);
+boundary
+(
+  left
+  {
+    type    patch;
+    faces
+    (
+      (0 3 7 4)
+    );
+  }
+  right
+  {
+    type    patch;
+    faces
+    (
+      (1 5 6 2)
+    );
+  }
+  back
+  {
+    type    patch;
+    faces
+    (
+      (3 2 6 7)
+    );
+  }
+  front
+  {
+    type    patch;
+    faces
+    (
+      (0 4 5 1)
+    );
+  }
+  bottom
+  {
+    type    wall;
+    faces
+    (
+      (0 1 2 3)
+    );
+  }
+  top
+  {
+    type    patch;
+    faces
+    (
+      (4 7 6 5)
+    );
+  }
+);
+mergePatchPairs
+(
+);

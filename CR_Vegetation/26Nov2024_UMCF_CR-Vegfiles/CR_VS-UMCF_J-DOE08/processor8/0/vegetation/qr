@@ -1,0 +1,119 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/vegetation";
+    object      qr;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 0 -3 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    left
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        qro             uniform 0;
+        value           nonuniform List<scalar> 0();
+    }
+    right
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        qro             uniform 0;
+        value           nonuniform List<scalar> 0();
+    }
+    back
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        qro             uniform 0;
+        value           nonuniform List<scalar> 0();
+    }
+    front
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        qro             uniform 0;
+        value           nonuniform List<scalar> 0();
+    }
+    bottom
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 0.9;
+        qro             uniform 0;
+        value           uniform 0;
+    }
+    top
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 1;
+        qro             uniform 0;
+        value           nonuniform List<scalar> 0();
+    }
+    Building
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 0.9;
+        qro             uniform 0;
+        value           uniform 0;
+    }
+    air_to_vegetation
+    {
+        type            greyDiffusiveRadiationViewFactor;
+        emissivityMode  lookup;
+        emissivity      uniform 0.9;
+        qro             uniform 0;
+        value           uniform 0;
+    }
+    procBoundary8to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to6
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to7
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary8to9
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
